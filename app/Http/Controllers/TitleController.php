@@ -20,6 +20,12 @@ class TitleController extends Controller
         return view('titles.index', compact('titles'));
     }
 
+    public function search()
+    {
+        $titles = Title::all();
+        return view('titles.search', compact('titles'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -40,7 +46,11 @@ class TitleController extends Controller
     public function store(StoreTitleRequest $request)
     {
         //
-        Title::create($request->validated());
+       // Title::create($request->validated());
+        $input = $request->all();
+        $tags = explode(",", $request->tags);
+        $title = Title::create($input);
+        $title->tag($tags);
         return redirect()->route('titles.index');
     }
 

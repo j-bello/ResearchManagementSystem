@@ -16,9 +16,8 @@ class CreateTitlesTable extends Migration
         Schema::create('titles', function (Blueprint $table) {
             $table->id();
             $table->string('user_number',200)->nullable();
-            $table->string('title',200)->nullable();
-            $table->string('description',200)->nullable();
-            $table->string('tags',200)->nullable();
+            $table->longText('title',200)->nullable();
+            $table->longText('description',200)->nullable();
             $table->string('approvedBy',200)->nullable();
             $table->string('year',200)->nullable();
             $table->timestamps();

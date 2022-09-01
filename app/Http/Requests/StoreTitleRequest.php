@@ -31,9 +31,7 @@ class StoreTitleRequest extends FormRequest
             'description'=>[
                 'required','string'
             ],
-            'tags'=>[
-                'required','string'
-            ],
+         
             'approvedBy'=>[
                 'required','string'
             ],

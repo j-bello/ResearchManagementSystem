@@ -16,9 +16,16 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
-                @can('title_access')
+            @can('title_access')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('titles.index') }}" :active="request()->routeIs('titles.*')">
+                    <x-jet-nav-link href="{{ route('titles.search') }}" :active="request()->routeIs('titles.search')">
+                        Search
+                    </x-jet-nav-link>
+                </div>
+            @endcan
+            @can('title_access')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('titles.index') }}" :active="request()->routeIs('titles.index')">
                         Titles
                     </x-jet-nav-link>
                 </div>

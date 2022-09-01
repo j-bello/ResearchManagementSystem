@@ -19,8 +19,15 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'id'             => 2,
-                'name'           => 'User',
-                'email'          => 'user@user.com',
+                'name'           => 'Professor',
+                'email'          => 'professor@professor.com',
+                'password'       => bcrypt('password'),
+                'remember_token' => null,
+            ],
+            [
+                'id'             => 3,
+                'name'           => 'Student',
+                'email'          => 'student@student.com',
                 'password'       => bcrypt('password'),
                 'remember_token' => null,
             ],

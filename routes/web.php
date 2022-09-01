@@ -25,10 +25,14 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/titles.search', function () {
+        return view('titles.search');
+    })->name('titles.search');
 });
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('titles', \App\Http\Controllers\TitleController::class);
-
     Route::resource('users', \App\Http\Controllers\UsersController::class);
+
 });

@@ -28,6 +28,7 @@
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
+
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="tags" class="block font-medium text-sm text-gray-700">Tags</label>
                             <input type="text" name="tags" id="tags" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
@@ -36,6 +37,7 @@
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
+
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="approvedBy" class="block font-medium text-sm text-gray-700">Approved By</label>
                             <input type="text" name="approvedBy" id="approvedBy" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
