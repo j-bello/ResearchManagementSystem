@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-l text-gray-800 leading-tight">
             Users List
         </h2>
     </x-slot>
@@ -8,7 +8,7 @@
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <a href="{{ route('users.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add User</a>
+                <a href="{{ route('users.create') }}" class="bg-green-500 hover:bg-green-700 text-sm text-white font-bold py-2 px-4 rounded"> <i class="fa-solid fa-user-plus"></i> Add User</a>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -32,7 +32,7 @@
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Roles
                                     </th>
-                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Actions
                                     </th>
                                 </tr>
@@ -64,14 +64,18 @@
                                             @endforeach
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('users.show', $user->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
-                                            <a href="{{ route('users.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
+                                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium">
+                                            <a href="{{ route('users.show', $user->id) }}" class="text-green-600 hover:text-blue-900 mb-2 mr-2"><i class="fa-solid fa-eye"></i></a>
+                                            <a href="{{ route('users.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2"><i class="fa-solid fa-user-pen"></i></a>
                                             <form class="inline-block" action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">
+                                                <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                                                    <i class="fas fa-trash text-red-600"></i>
+                                                </button>
                                             </form>
+
+
                                         </td>
                                     </tr>
                                 @endforeach

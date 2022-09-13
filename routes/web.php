@@ -30,6 +30,7 @@ Route::middleware([
     Route::get('/titles.search', function () {
         return view('titles.search');
     })->name('titles.search');
+
 });
 
 Route::group(['middleware' => 'auth'], function () {

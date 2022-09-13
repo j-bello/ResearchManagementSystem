@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-l text-gray-800 leading-tight">
             Show Title
         </h2>
     </x-slot>
@@ -49,7 +49,7 @@
                                         {{ $title->panelists }}
                                     </td>
                                 </tr>
-                                
+
                                 <tr class="border-b">
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Tags
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div class="block mt-8">
-                <a href="{{ route('titles.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
+                <a href="{{ route('titles.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded"><i class="fa-solid fa-arrow-left"></i></a>
             </div>
         </div>
     </div>

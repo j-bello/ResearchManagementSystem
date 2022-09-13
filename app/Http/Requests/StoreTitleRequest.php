@@ -14,7 +14,7 @@ class StoreTitleRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::allows('title_access');
+        return Gate::allows('titles_access');
     }
 
     /**
@@ -31,7 +31,7 @@ class StoreTitleRequest extends FormRequest
             'description'=>[
                 'required','string'
             ],
-         
+
             'approvedBy'=>[
                 'required','string'
             ],
