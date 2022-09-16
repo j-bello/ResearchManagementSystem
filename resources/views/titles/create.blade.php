@@ -79,7 +79,7 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="tags" class="block font-medium text-sm text-gray-700">Tags</label>
+                            <label for="tags" class="block font-medium text-sm text-gray-700">Research Topics</label>
                             <input type="text" name="tags" id="tags" type="text" data-role="tagsinput"
                                 class="form-input rounded-md shadow-sm mt-1 block w-full"
                                 value="{{ old('tags', '') }}" />
@@ -115,7 +115,7 @@
                                 Create
                             </button>
                         </div>
-                        
+
                     </div>
                 </form>
             </div>
