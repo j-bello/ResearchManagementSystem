@@ -37,6 +37,20 @@
                     </x-jet-nav-link>
                 </div>
             @endcan
+            @can('themes_access')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('themes.index') }}" :active="request()->routeIs('themes.*')">
+                        Research Themes
+                    </x-jet-nav-link>
+                </div>
+            @endcan
+        <!--    @can('research_access')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('researchAreas.index') }}" :active="request()->routeIs('researchAreas.*')">
+                        Research Areas
+                    </x-jet-nav-link>
+                </div>
+            @endcan-->
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

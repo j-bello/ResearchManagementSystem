@@ -21,6 +21,14 @@ class PermissionsTableSeeder extends Seeder
             [
                 'id'    => 3,
                 'title' => 'search_access',
+            ],
+            [
+                'id'    => 4,
+                'title' => 'themes_access',
+            ],
+            [
+                'id'    => 5,
+                'title' => 'research_access',
             ]
         ];
 

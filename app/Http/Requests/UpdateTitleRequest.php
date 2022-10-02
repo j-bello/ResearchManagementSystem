@@ -40,6 +40,9 @@ class UpdateTitleRequest extends FormRequest
             'year'=>[
                 'required','string'
             ],
+            'program'=>[
+                'required','string'
+            ],
         ];
     }
 }

@@ -38,6 +38,9 @@ class StoreTitleRequest extends FormRequest
             'year'=>[
                 'required','string'
             ],
+            'program'=>[
+                'required','string'
+            ],
         ];
     }
 }

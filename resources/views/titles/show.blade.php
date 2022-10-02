@@ -19,7 +19,16 @@
                                         ID
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $title->id }}
+                                        {{ $title->id}}
+                                    </td>
+                                </tr>
+
+                                <tr class="border-b">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Program
+                                    </th>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        {{ $title->program}}
                                     </td>
                                 </tr>
 
@@ -40,6 +49,8 @@
                                         {{ $title->description }}
                                     </td>
                                 </tr>
+
+
 
                                 <tr class="border-b">
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -85,8 +96,35 @@
                                         {{ $title->year }}
                                     </td>
                                 </tr>
+                                <tr class="border-b">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Upload File
+                                    </th>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        <form action="{{ route('titles.upload', $title->id) }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+
+                                            <div class="mb-3">
+                                                        <div class="row">
+                                                            <div class="col align-self-center">
+                                                                <label for="file" class="form-label"><b></b></label>
+                                                                <input type="file"
+                                                                    class="form-control shadow-none  @error('docFile') is-invalid @enderror"
+                                                                    onchange="previewFile(this)" name="docFile">
+                                                                    <button type="submit" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                        @error('docFile')
+                                                            <small id="helpId" class="form-text text-danger">{{ $message }}</small>
+                                                        @enderror
+                                                    </div>
+                                        </form>
+                                    </td>
+                                </tr>
                             </table>
                         </div>
+
+
                     </div>
                 </div>
             </div>

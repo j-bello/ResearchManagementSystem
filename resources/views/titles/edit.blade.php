@@ -12,7 +12,19 @@
                     @csrf
                     @method('PUT')
                     <div class="shadow overflow-hidden sm:rounded-md">
-
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="program" class="block font-medium text-sm text-gray-700">Program</label>
+                            <select name="program" id="program" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" value="{{ old('program', '') }}">
+                                    <option value="">Select Program</option>
+                                    <option value="CS">Computer Science</option>
+                                    <option value="IT">Information Technology</option>
+                                    <option value="IS">Information Systems</option>
+                                    <option value="EMC">Entertainment and Mobile Computing</option>
+                            </select>
+                            @error('program')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="title" class="block font-medium text-sm text-gray-700">Title</label>
                             <input type="text" name="title" id="title" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
@@ -29,6 +41,8 @@
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
+
+
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="panelists" class="block font-medium text-sm text-gray-700">Panelists</label>

@@ -5,7 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreTitleRequest;
 use App\Http\Requests\UpdateTitleRequest;
+use Illuminate\Support\Facades\File;
 use App\Models\Title;
+use App\Models\File as ModelsFile;
+use Auth;
+use Illuminate\Support\Facades\DB;
+
+
 class TitleController extends Controller
 {
     /**
@@ -17,6 +23,7 @@ class TitleController extends Controller
     {
         //
         $titles = Title::all();
+        $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
         return view('titles.index', compact('titles'));
     }
 
@@ -52,6 +59,7 @@ class TitleController extends Controller
         $title = Title::create($input);
         $title->tag($tags);
 
+
         return redirect()->route('titles.index');
     }
 
@@ -64,6 +72,7 @@ class TitleController extends Controller
     public function show(Title $title)
     {
         //
+       // $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
         return view('titles.show', compact('title'));
     }
 
@@ -99,6 +108,12 @@ class TitleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy(Title $title)
     {
         //
@@ -106,4 +121,32 @@ class TitleController extends Controller
 
         return redirect()->route('titles.index');
     }
+
+
+    public function upload(Request $request, $id){
+
+        $request->validate([
+            'docFile' => ['nullable', 'mimes:pdf', 'max:15000']
+        ]);
+        
+        $docfile = new ModelsFile();
+
+                //saving image
+                $file = $request->file('docFile');
+                $fileName = time() . '.' . $file->extension();
+                $file->move(public_path('assets'), $fileName);
+
+                $docfile->title_id = $id;
+                $docfile->file = $fileName;
+
+                $docfile->save();
+                return back()->with('updated', '');
+    }
+
+    public function download(Request $request, $file)
+    {
+        return response()->download(public_path('assets/'.$file));
+
+    }
+
 }

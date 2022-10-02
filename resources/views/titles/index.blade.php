@@ -3,10 +3,12 @@
         <h2 class="font-semibold text-l text-gray-800 leading-tight">
             Titles List
         </h2>
+
     </x-slot>
 
+
     <div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block" style="margin-bottom: 30px;">
                 <a href="{{ route('titles.create') }}"
                     class="bg-green-500 hover:bg-green-700 text-sm text-white font-bold py-2 px-4 rounded"><i
@@ -21,10 +23,14 @@
                                     <tr>
                                         <th scope="col"
                                             class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
+                                            ID</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
                                             Title</th>
                                         <th scope="col"
                                             class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
                                             Description</th>
+
                                         <th scope="col"
                                             class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
                                             Panelists</th>
@@ -44,6 +50,8 @@
                                     @foreach ($titles as $title)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                {{ $title->titlecode }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                 {{ $title->title }}</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                 {{ $title->description }}</td>
@@ -55,6 +63,12 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                 {{ $title->year }}</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+
+
+
+
+
+
                                                 <a href="{{ route('titles.show', $title->id) }}"
                                                     class="text-green-600 hover:text-green-900 mb-2 mr-2"><i
                                                         class="fa-solid fa-eye"></i></a>
@@ -77,11 +91,20 @@
                                 </tbody>
                             </table>
 
+
                         </div>
+
                     </div>
                 </div>
             </div>
 
         </div>
+
+
     </div>
+
+
+
+
+
 </x-app-layout>
