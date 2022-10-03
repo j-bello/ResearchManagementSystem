@@ -103,7 +103,6 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
                                         <form action="{{ route('titles.upload', $title->id) }}" method="POST" enctype="multipart/form-data">
                                             @csrf
-
                                             <div class="mb-3">
                                                         <div class="row">
                                                             <div class="col align-self-center">

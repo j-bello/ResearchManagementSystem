@@ -7,7 +7,6 @@ use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\AreaController;
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,9 +39,11 @@ Route::middleware([
         return view('titles.upload');
     })->name('titles.upload');
 
-    Route::post('/titles.upload', [TitleController::class, 'upload']);
+    Route::post('/titles/upload/{id}', [TitleController::class, 'upload'])->name('titles.upload');
 
-    Route::resource('upload', 'TitleController');
+   // Route::post('/titles/upload', [TitleController::class, 'upload']);
+
+
 
 
     //RESEARCH THEMES

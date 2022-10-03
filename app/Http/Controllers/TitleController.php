@@ -126,9 +126,11 @@ class TitleController extends Controller
     public function upload(Request $request, $id){
 
         $request->validate([
-            'docFile' => ['nullable', 'mimes:pdf', 'max:15000']
+            'docFile' => ['nullable', 'mimes:doc,docx,pdf,csv', 'max:15000']
+
+        ], [
+            // custom error message
         ]);
-        
         $docfile = new ModelsFile();
 
                 //saving image
