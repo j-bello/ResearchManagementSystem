@@ -135,7 +135,7 @@ class TitleController extends Controller
 
                 //saving image
                 $file = $request->file('docFile');
-                $fileName = time() . '.' . $file->extension();
+                $fileName = $file->getClientOriginalName();
                 $file->move(public_path('assets'), $fileName);
 
                 $docfile->title_id = $id;
