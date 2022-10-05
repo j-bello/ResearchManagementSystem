@@ -29,29 +29,33 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                    @foreach($themes as $theme)
+                                    @foreach ($themes as $theme)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                 {{ $theme->theme }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
 
 
-                                            <a href="{{ route('themes.show', $theme->id) }}"
-                                                class="text-green-600 hover:text-green-900 mb-2 mr-2"><i
-                                                    class="fa-solid fa-eye"></i></a>
-                                            <a href="{{ route('themes.edit', $theme->id) }}"
-                                                class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2"><i
-                                                    class="fa-solid fa-user-pen"></i></a>
-                                            <form class="inline-block"
-                                                action="{{ route('themes.destroy', $theme->id) }}" method="POST"
-                                                onsubmit="return confirm('Are you sure?');">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button type="submit" title="delete"
-                                                    style="border: none; background-color:transparent;">
-                                                    <i class="fas fa-trash text-red-600"></i>
-                                                </button>
-                                            </form>
+                                                <a href="{{ route('themes.area', $theme->id) }}"
+                                                    class="text-green-600 hover:text-green-900 mb-2 mr-2"><i
+                                                        class="fa-solid fa-plus"></i></a>
+
+                                                <a href="{{ route('themes.show', $theme->id) }}"
+                                                    class="text-green-600 hover:text-green-900 mb-2 mr-2"><i
+                                                        class="fa-solid fa-eye"></i></a>
+                                                <a href="{{ route('themes.edit', $theme->id) }}"
+                                                    class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2"><i
+                                                        class="fa-solid fa-user-pen"></i></a>
+                                                <form class="inline-block"
+                                                    action="{{ route('themes.destroy', $theme->id) }}" method="POST"
+                                                    onsubmit="return confirm('Are you sure?');">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <button type="submit" title="delete"
+                                                        style="border: none; background-color:transparent;">
+                                                        <i class="fas fa-trash text-red-600"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

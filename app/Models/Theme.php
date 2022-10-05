@@ -9,7 +9,7 @@ class Theme extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['theme'];
+    protected $fillable = ['theme','area'];
 
     public function research(){
         return $this->hasMany(Research::class);

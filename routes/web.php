@@ -69,6 +69,16 @@ Route::middleware([
         return view('themes.show');
     })->name('themes.show');
 
+    Route::get('/themes.area', function () {
+        return view('themes.area');
+    })->name('themes.area');
+
+    Route::get('add-remove-multiple-input-fields', [ThemeController::class, 'index']);
+    Route::post('addResearch', [ThemeController::class, 'addResearch']);
+
+
+
+
 
 
     Route::get('/areas.index', [AreaController::class, 'index']);

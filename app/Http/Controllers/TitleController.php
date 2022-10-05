@@ -69,11 +69,15 @@ class TitleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Title $title)
+    public function show($id)
     {
         //
        // $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
-        return view('titles.show', compact('title'));
+
+       $title = Title::find($id);
+       $file = DB::table('files')->where('title_id', $id)->latest('created_at')->first();
+        
+        return view('titles.show', compact('title','file'));
     }
 
     /**

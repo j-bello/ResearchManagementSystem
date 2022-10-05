@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Theme;
+
 class ThemeController extends Controller
 {
     /**
@@ -40,6 +42,7 @@ class ThemeController extends Controller
         $themes = new Theme();
         $themes->theme = $request->theme;
         $themes->save();
+
         return redirect()->back()->with('message', 'Theme Added Successfully');
     }
 
@@ -61,13 +64,15 @@ class ThemeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit(Theme $theme)
     {
         //
-        $themes = Theme::find($id);
-        $themes->theme = $request->theme;
-        $themes->save();
-        return redirect()->back()->with('message', 'Theme Updated Successfully');
+        // $themes = Theme::find($id);
+        // $themes->theme = $request->theme;
+        // $themes->save();
+        //  return redirect()->back()->with('message', 'Theme Updated Successfully');
+
+        return view('themes.edit', compact('theme'));
     }
 
     /**
@@ -92,11 +97,27 @@ class ThemeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Theme $themes)
+    public function destroy(Theme $theme)
     {
         //
-        $themes->delete();
+        $theme->delete();
 
         return redirect()->route('themes.index');
+    }
+
+    public function addResearch(Request $request, $id){
+
+        $themes = Theme::find($id);
+        $themes->theme = $request->theme;
+
+        $request->validate([
+            'moreFields.*.area' => 'required'
+        ]);
+
+        foreach ($request->moreFields as $key => $value) {
+            Theme::create($value);
+        }
+
+        return back()->with('success', 'Todos Has Been Created Successfully.');
     }
 }
