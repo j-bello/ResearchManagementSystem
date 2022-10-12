@@ -61,6 +61,22 @@
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
+
+                        <div class="px-4 sm:p-6">
+                            <label for="themes" class="block font-medium text-sm text-gray-700" style="font-weight: bold;">Themes</label>
+                            <select name="themes" id="themes" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" value="{{ old('themes', '') }}">
+                                    <option value="">Select Theme</option>
+                                    @foreach ($themes as $theme)
+
+                                    <option value="{{$theme->theme}}">{{$theme->theme}} - {{$theme->description}}</option>
+
+                                    @endforeach
+                            </select>
+                            @error('themes')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="approvedBy" class="block font-medium text-sm text-gray-700">Approved By</label>
                             <input type="text" name="approvedBy" id="approvedBy" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"

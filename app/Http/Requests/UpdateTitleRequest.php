@@ -43,6 +43,9 @@ class UpdateTitleRequest extends FormRequest
             'program'=>[
                 'required','string'
             ],
+            'themes'=>[
+                'required','string'
+            ],
         ];
     }
 }

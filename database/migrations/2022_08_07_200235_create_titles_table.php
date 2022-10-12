@@ -23,7 +23,7 @@ class CreateTitlesTable extends Migration
             $table->longText('panelists',200)->nullable();
             $table->string('approvedBy',200)->nullable();
             $table->string('year',200)->nullable();
-            $table->string('theme',200)->nullable();
+            $table->string('themes',200)->nullable();
             $table->timestamps();
         });
     }

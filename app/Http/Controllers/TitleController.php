@@ -65,7 +65,7 @@ class TitleController extends Controller
         $tags = explode(",", $request->tags);
         $title = Title::create($input);
         $title->tag($tags);
-
+        
 
         return redirect()->route('titles.index');
     }

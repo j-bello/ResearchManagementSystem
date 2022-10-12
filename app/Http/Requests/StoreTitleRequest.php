@@ -41,6 +41,9 @@ class StoreTitleRequest extends FormRequest
             'program'=>[
                 'required','string'
             ],
+            'themes'=>[
+                'required','string'
+            ],
         ];
     }
 }
