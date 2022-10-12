@@ -7,6 +7,7 @@ use App\Http\Requests\StoreTitleRequest;
 use App\Http\Requests\UpdateTitleRequest;
 use Illuminate\Support\Facades\File;
 use App\Models\Title;
+use App\Models\Theme;
 use App\Models\File as ModelsFile;
 use Auth;
 use Illuminate\Support\Facades\DB;
@@ -22,13 +23,17 @@ class TitleController extends Controller
     public function index()
     {
         //
+        $themes = Theme::all();
         $titles = Title::all();
         $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
         return view('titles.index', compact('titles'));
+
     }
 
     public function search()
     {
+        $themes = Theme::all();
+
         $titles = Title::all();
         return view('titles.search', compact('titles'));
     }
@@ -38,10 +43,12 @@ class TitleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Theme $themes)
     {
         //
-        return view('titles.create');
+        $themes = Theme::all();
+
+        return view('titles.create')->with(['themes' => $themes]);
     }
 
     /**
@@ -76,7 +83,7 @@ class TitleController extends Controller
 
        $title = Title::find($id);
        $file = DB::table('files')->where('title_id', $id)->latest('created_at')->first();
-        
+
         return view('titles.show', compact('title','file'));
     }
 

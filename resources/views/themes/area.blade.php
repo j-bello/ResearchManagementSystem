@@ -36,11 +36,11 @@
                                 <tr>
                                     <td><input type="text" name="moreFields[0][area]" placeholder="Enter research area"
                                             class="form-control" /></td>
-                                    <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add
+                                    <td><button type="button" name="add" id="add-btn" class="btn btn-secondary">Add
                                             More</button></td>
                                 </tr>
                             </table>
-                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="submit" class="btn btn-secondary">Save</button>
                         </form>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Title extends Model
 {
     use \Conner\Tagging\Taggable;
-    protected $fillable = ['user_number','program','titlecode','title','description','panelists','approvedBy','year'];
+    protected $fillable = ['user_number','program','titlecode','title','description','panelists','approvedBy','year','theme'];
 
 
     public function file(){

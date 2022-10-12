@@ -25,6 +25,9 @@
                                             Theme</th>
                                         <th scope="col"
                                             class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
+                                            Description</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
                                             Actions</th>
                                     </tr>
                                 </thead>
@@ -34,11 +37,11 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                 {{ $theme->theme }}</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                {{ $theme->description }}</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
 
 
-                                                <a href="{{ route('themes.area', $theme->id) }}"
-                                                    class="text-green-600 hover:text-green-900 mb-2 mr-2"><i
-                                                        class="fa-solid fa-plus"></i></a>
+
 
                                                 <a href="{{ route('themes.show', $theme->id) }}"
                                                     class="text-green-600 hover:text-green-900 mb-2 mr-2"><i

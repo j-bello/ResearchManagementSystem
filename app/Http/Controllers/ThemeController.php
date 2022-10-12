@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Theme;
-
+use Symfony\Component\Console\Input\Input;
+use DB;
 class ThemeController extends Controller
 {
     /**
@@ -41,6 +42,7 @@ class ThemeController extends Controller
         //
         $themes = new Theme();
         $themes->theme = $request->theme;
+        $themes->description = $request ->description;
         $themes->save();
 
         return redirect()->back()->with('message', 'Theme Added Successfully');
@@ -105,19 +107,31 @@ class ThemeController extends Controller
         return redirect()->route('themes.index');
     }
 
-    public function addResearch(Request $request, $id){
+   // public function addResearch(Request $request, Theme $id){
 
-        $themes = Theme::find($id);
-        $themes->theme = $request->theme;
 
-        $request->validate([
-            'moreFields.*.area' => 'required'
-        ]);
+       // $themes = new Theme();
+    //   $themes = Theme::find($id);
+      // $themes->theme = $request->theme;
 
-        foreach ($request->moreFields as $key => $value) {
-            Theme::create($value);
-        }
+     //   foreach ($request->moreFields as $key => $value) {
 
-        return back()->with('success', 'Todos Has Been Created Successfully.');
+
+           //Theme::create($value);
+
+        //   DB::table('themes')->insert([
+           // 'theme' => $themes,
+        //    'area' => $value
+        //   ]);
+       //   $themes = Theme::create([
+        //    'theme' => $themes,
+         //   'area' => $value]);
+
+          //$theme_id = $themes->$id();
+          //$value = implode(" ", $value);
+
+      //  }
+
+    //    return back()->with('success', 'Research Areas Has Been Created Successfully.');
     }
-}
+
