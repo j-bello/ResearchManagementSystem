@@ -1,7 +1,7 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 font-bold">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-bold">
+        <div class="flex justify-between h-16 font-bold">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
@@ -11,34 +11,34 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold" >
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
             @can('search_access')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold" >
                     <x-jet-nav-link href="{{ route('titles.search') }}" :active="request()->routeIs('titles.search')">
                         Search
                     </x-jet-nav-link>
                 </div>
             @endcan
             @can('titles_access')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold" >
                     <x-jet-nav-link href="{{ route('titles.index') }}" :active="request()->routeIs('titles.index')">
                         Titles
                     </x-jet-nav-link>
                 </div>
             @endcan
             @can('user_access')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold">
                     <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
                         Users
                     </x-jet-nav-link>
                 </div>
             @endcan
             @can('themes_access')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold">
                     <x-jet-nav-link href="{{ route('themes.index') }}" :active="request()->routeIs('themes.*')">
                         Research Themes
                     </x-jet-nav-link>

@@ -41,6 +41,9 @@ Route::middleware([
 
     Route::post('/titles/upload/{id}', [TitleController::class, 'upload'])->name('titles.upload');
 
+    Route::get('/titles/download/{file}', [TitleController::class, 'download'])->name('titles.download');
+
+
    // Route::post('/titles/upload', [TitleController::class, 'upload']);
 
 
@@ -111,5 +114,4 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('themes', \App\Http\Controllers\ThemeController::class);
     Route::resource('titles', \App\Http\Controllers\TitleController::class);
     Route::resource('users', \App\Http\Controllers\UsersController::class);
-
 });

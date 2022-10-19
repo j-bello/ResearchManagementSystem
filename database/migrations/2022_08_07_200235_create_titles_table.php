@@ -19,7 +19,7 @@ class CreateTitlesTable extends Migration
             $table->string('program',200)->nullable();
             $table->string('titlecode',200)->nullable();
             $table->longText('title',200)->nullable();
-            $table->longText('description',200)->nullable();
+            $table->longText('description',500)->nullable();
             $table->longText('panelists',200)->nullable();
             $table->string('approvedBy',200)->nullable();
             $table->string('year',200)->nullable();

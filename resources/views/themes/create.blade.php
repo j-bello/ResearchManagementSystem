@@ -21,7 +21,7 @@
                         </div>
                         <div class="px-4 sm:p-6">
                             <label for="description" class="block font-medium text-sm text-gray-700"
-                                style="font-weight: bold;">Description</label>
+                               >Description</label>
                             <input type="text" name="description" id="description" type="text"
                                 class="form-input rounded-md shadow-sm mt-1 block w-full"
                                 value="{{ old('description', '') }}" />

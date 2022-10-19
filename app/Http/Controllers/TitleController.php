@@ -65,7 +65,9 @@ class TitleController extends Controller
         $tags = explode(",", $request->tags);
         $title = Title::create($input);
         $title->tag($tags);
-        
+
+       // $themes = implode(",", $request->themes);
+       // $title->themes($themes);
 
         return redirect()->route('titles.index');
     }
@@ -93,10 +95,12 @@ class TitleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Title $title)
+    public function edit(Title $title, Theme $themes)
     {
         //
-        return view('titles.edit', compact('title'));
+        $themes = Theme::all();
+
+        return view('titles.edit', compact('title','themes'));
     }
 
     /**
@@ -156,10 +160,14 @@ class TitleController extends Controller
                 return back()->with('updated', '');
     }
 
+
+
+
     public function download(Request $request, $file)
     {
         return response()->download(public_path('assets/'.$file));
 
     }
+
 
 }

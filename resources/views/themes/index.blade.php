@@ -41,8 +41,6 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
 
 
-
-
                                                 <a href="{{ route('themes.show', $theme->id) }}"
                                                     class="text-green-600 hover:text-green-900 mb-2 mr-2"><i
                                                         class="fa-solid fa-eye"></i></a>

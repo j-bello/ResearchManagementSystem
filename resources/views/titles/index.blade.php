@@ -29,11 +29,11 @@
                                             Title</th>
                                         <th scope="col"
                                             class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
-                                            Description</th>
-                                       
+                                            Abstract</th>
+
                                         <th scope="col"
                                             class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
-                                            Agenda</th>
+                                            Research Agenda</th>
 
                                         <th scope="col"
                                             class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
@@ -69,6 +69,7 @@
                                                 {{ $title->approvedBy }}</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                 {{ $title->year }}</td>
+
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
 
 
@@ -92,6 +93,8 @@
                                                         <i class="fas fa-trash text-red-600"></i>
                                                     </button>
                                                 </form>
+
+
                                             </td>
                                         </tr>
                                     @endforeach

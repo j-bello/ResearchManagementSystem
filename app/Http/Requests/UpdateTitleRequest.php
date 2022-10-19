@@ -14,7 +14,7 @@ class UpdateTitleRequest extends FormRequest
      */
     public function authorize()
     {
-        return Gate::allows('title_access');
+        return Gate::allows('titles_access');
     }
 
     /**

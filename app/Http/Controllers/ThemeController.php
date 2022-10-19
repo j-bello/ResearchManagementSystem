@@ -71,7 +71,9 @@ class ThemeController extends Controller
         //
         // $themes = Theme::find($id);
         // $themes->theme = $request->theme;
-        // $themes->save();
+        // $themes->description = $request->description;
+
+       //  $themes->save();
         //  return redirect()->back()->with('message', 'Theme Updated Successfully');
 
         return view('themes.edit', compact('theme'));
@@ -89,6 +91,8 @@ class ThemeController extends Controller
         //
         $themes = Theme::find($id);
         $themes->theme = $request->theme;
+        $themes->description = $request->description;
+
         $themes->save();
         return redirect()->back()->with('message', 'Theme Updated Successfully');
     }
