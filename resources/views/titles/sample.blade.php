@@ -33,13 +33,6 @@
 
 <body>
 
-    <div class="text-center mt-5">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            <i class="bi bi-plus-square-fill"></i> Title
-        </button>
-    </div>
-
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable modal-xl">
             <div class="modal-content">
@@ -168,7 +161,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-warning ">Create Title</button>
+                    <button type="submit" class="btn btn-warning ">Create Blotter Report</button>
                 </div>
                 </form>
             </div>

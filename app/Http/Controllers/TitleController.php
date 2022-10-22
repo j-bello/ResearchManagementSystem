@@ -26,7 +26,7 @@ class TitleController extends Controller
         $themes = Theme::all();
         $titles = Title::all();
         $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
-        return view('titles.index', compact('titles'));
+        return view('titles.index', compact('titles','themes'));
 
     }
 

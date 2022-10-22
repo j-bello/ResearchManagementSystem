@@ -154,10 +154,11 @@
 
 
 
+                                                        <div class="mt-5" style="text-align: right;">
 
 
-                                                    <a class="btn btn-success mt-3 mb-3 rounded" style="background-color: rgb(228, 151, 57); color:white;" href="{{ route('titles.download', $file->file) }}" role="button">  Download </a>
-
+                                                    <a class="btn btn-success mt-3 mb-3 rounded py-2 px-4" style="background-color: rgb(228, 151, 57); color:white;" href="{{ route('titles.download', $file->file) }}" role="button"><i class="fa-thin fa-file-arrow-down"></i> Download </a>
+                                                        </div>
                                                 </div>
 
                                                 @endif

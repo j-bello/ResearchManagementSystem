@@ -10,7 +10,7 @@
         <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block" style="margin-bottom: 30px;">
                 <a href="{{ route('themes.create') }}"
-                    class="bg-green-500 hover:bg-green-700 text-sm text-white font-bold py-2 px-4 rounded"><i
+                    class="bg-green-500 hover:bg-green-700 text-sm text-white font-bold py-2 px-4 rounded" style="background-color: rgb(228, 151, 57);" ><i
                         class="fa-solid fa-plus"></i> Add Theme</a>
             </div>
             <div class="flex flex-col">
