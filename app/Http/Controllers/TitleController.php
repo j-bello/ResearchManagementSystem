@@ -20,9 +20,18 @@ class TitleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+
+
+        if($request->filled('search')){
+            $titles = Title::search($request->search)->get();
+        }else{
+            $titles = Title::get()->take('5');
+        }
+
+
         $themes = Theme::all();
         $titles = Title::all();
         $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();

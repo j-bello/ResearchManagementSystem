@@ -46,6 +46,7 @@ Route::middleware([
 
    // Route::post('/titles/upload', [TitleController::class, 'upload']);
 
+   Route::post('/titles/update/{id}', [TitleController::class, 'update'])->name('titles.update');
 
 
 

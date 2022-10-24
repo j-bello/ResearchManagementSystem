@@ -53,6 +53,8 @@
             </button>
 
 
+
+<!--CREATE TITLE-->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                     <div class="modal-content">
@@ -183,11 +185,14 @@
                         </div>
                         </form>
                     </div>
+
                 </div>
             </div>
 
 
             <div>
+
+
                 <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
 
                     <div class="flex flex-col">
@@ -256,9 +261,10 @@
                                                         <a href="{{ route('titles.show', $title->id) }}"
                                                             class="text-green-600 hover:text-green-900 mb-2 mr-2"><i
                                                                 class="fa-solid fa-eye"></i></a>
-                                                        <a href="{{ route('titles.edit', $title->id) }}"
-                                                            class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2"><i
-                                                                class="fa-solid fa-user-pen"></i></a>
+                                                                <a href="{{ route('titles.edit', $title->id) }}"
+                                                                    class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2"><i
+                                                                        class="fa-solid fa-user-pen"></i></a>
+
                                                         <form class="inline-block"
                                                             action="{{ route('titles.destroy', $title->id) }}"
                                                             method="POST"
