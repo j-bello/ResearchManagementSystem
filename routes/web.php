@@ -48,7 +48,9 @@ Route::middleware([
 
    Route::post('/titles/update/{id}', [TitleController::class, 'update'])->name('titles.update');
 
+  // Route::get('themes/{id}/edit/','ThemeController@edit');
 
+ //  Route::get('/themes/{id}/edit', [ThemeController::class, 'edit'])->name('themes.edit');
 
     //RESEARCH THEMES
     Route::get('/themes.index', function () {

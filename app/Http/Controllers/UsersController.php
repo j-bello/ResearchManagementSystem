@@ -12,8 +12,18 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+
+        if ($request->ajax()) {
+            $data = User::latest()->get();
+            return datatables()->of(User::select('*'))
+            ->addColumn('action', 'users.action')
+            ->rawColumns(['action'])
+            ->addIndexColumn()
+            ->make(true);
+        }
+
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $users = User::with('roles')->get();

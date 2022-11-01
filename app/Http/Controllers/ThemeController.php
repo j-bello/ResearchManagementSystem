@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Theme;
 use Symfony\Component\Console\Input\Input;
 use DB;
+use DataTables;
+use Redirect,Response;
+
 class ThemeController extends Controller
 {
     /**
@@ -13,9 +16,18 @@ class ThemeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+
+        if ($request->ajax()) {
+            $data = Theme::latest()->get();
+            return datatables()->of(Theme::select('*'))
+            ->addColumn('action', 'themes.action')
+            ->rawColumns(['action'])
+           ->addIndexColumn()
+            ->make(true);
+        }
+
         $themes = Theme::all();
         return view('themes.index', compact('themes'));
     }
@@ -40,12 +52,24 @@ class ThemeController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'theme' => 'required|unique:themes|max:255',
+            'description' => 'required|unique:themes',
+        ], [
+            // custom error message
+        ]);
+
+
+
+
+
         $themes = new Theme();
         $themes->theme = $request->theme;
         $themes->description = $request ->description;
         $themes->save();
 
         return redirect()->back()->with('message', 'Theme Added Successfully');
+
     }
 
     /**
@@ -76,7 +100,11 @@ class ThemeController extends Controller
        //  $themes->save();
         //  return redirect()->back()->with('message', 'Theme Updated Successfully');
 
-        return view('themes.edit', compact('theme'));
+
+
+
+
+         return view('themes.edit', compact('theme'));
     }
 
     /**
@@ -88,10 +116,18 @@ class ThemeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+        $request->validate([
+           'theme' => "required|unique:themes|max:255,theme,$id",
+            'description' => "required|unique:themes",
+            // niremove ko validation sa image hahaha pag nilagyan ko ayaw masaveeeeeee
+      ], [
+            // custom error message here if ever meron
+       ]);
         $themes = Theme::find($id);
         $themes->theme = $request->theme;
-        $themes->description = $request->description;
+       $themes->description = $request->description;
 
         $themes->save();
         return redirect()->back()->with('message', 'Theme Updated Successfully');
@@ -105,10 +141,12 @@ class ThemeController extends Controller
      */
     public function destroy(Theme $theme)
     {
-        //
+
+
+
         $theme->delete();
 
-        return redirect()->route('themes.index');
+       return redirect()->route('themes.index');
     }
 
    // public function addResearch(Request $request, Theme $id){

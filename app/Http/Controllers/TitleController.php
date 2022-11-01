@@ -11,6 +11,7 @@ use App\Models\Theme;
 use App\Models\File as ModelsFile;
 use Auth;
 use Illuminate\Support\Facades\DB;
+use DataTables;
 
 
 class TitleController extends Controller
@@ -25,16 +26,24 @@ class TitleController extends Controller
         //
 
 
-        if($request->filled('search')){
-            $titles = Title::search($request->search)->get();
-        }else{
-            $titles = Title::get()->take('5');
+       // if($request->filled('search')){
+        //    $titles = Title::search($request->search)->get();
+       // }else{
+      //  //    $titles = Title::get()->take('5');
+       // }
+
+        if ($request->ajax()) {
+            $data = Title::latest()->get();
+            return datatables()->of(Title::select('*'))
+            ->addColumn('action', 'titles.action')
+            ->rawColumns(['action'])
+            ->addIndexColumn()
+            ->make(true);
         }
 
-
         $themes = Theme::all();
-        $titles = Title::all();
-        $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
+       $titles = Title::all();
+      //  $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
         return view('titles.index', compact('titles','themes'));
 
     }

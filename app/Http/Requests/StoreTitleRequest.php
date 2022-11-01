@@ -44,6 +44,12 @@ class StoreTitleRequest extends FormRequest
             'themes'=>[
                 'required','string'
             ],
+            'panelists'=>[
+                'required','string'
+            ],
+            'tags'=>[
+                'required','string'
+            ],
         ];
     }
 }

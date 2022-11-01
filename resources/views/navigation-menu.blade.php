@@ -7,7 +7,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{asset('/uploads/logo.png')}}" height="60" width="60"> </a>
+                        <img src="{{asset('/uploads/logo2.png')}}" height="60" width="60"> </a>
                     </a>
                 </div>
 
@@ -17,13 +17,7 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
-            @can('search_access')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold" >
-                    <x-jet-nav-link href="{{ route('titles.search') }}" :active="request()->routeIs('titles.search')">
-                        Search
-                    </x-jet-nav-link>
-                </div>
-            @endcan
+
             @can('titles_access')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold" >
                     <x-jet-nav-link href="{{ route('titles.index') }}" :active="request()->routeIs('titles.index')">
@@ -42,6 +36,13 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold">
                     <x-jet-nav-link href="{{ route('themes.index') }}" :active="request()->routeIs('themes.*')">
                         Research Themes
+                    </x-jet-nav-link>
+                </div>
+            @endcan
+            @can('search_access')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold" >
+                    <x-jet-nav-link href="{{ route('titles.search') }}" :active="request()->routeIs('titles.search')">
+                        Search
                     </x-jet-nav-link>
                 </div>
             @endcan
