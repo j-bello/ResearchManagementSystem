@@ -8,6 +8,8 @@ use Symfony\Component\Console\Input\Input;
 use DB;
 use DataTables;
 use Redirect,Response;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class ThemeController extends Controller
 {
@@ -68,7 +70,9 @@ class ThemeController extends Controller
         $themes->description = $request ->description;
         $themes->save();
 
-        return redirect()->back()->with('message', 'Theme Added Successfully');
+        Alert::success('Success', 'Theme added successfully!');
+
+        return redirect()->back()->with('message', 'Theme added successfully');
 
     }
 
@@ -92,16 +96,8 @@ class ThemeController extends Controller
      */
     public function edit(Theme $theme)
     {
-        //
-        // $themes = Theme::find($id);
-        // $themes->theme = $request->theme;
-        // $themes->description = $request->description;
 
-       //  $themes->save();
-        //  return redirect()->back()->with('message', 'Theme Updated Successfully');
-
-
-
+        Alert::success('Success', 'Theme updated successfully!');
 
 
          return view('themes.edit', compact('theme'));
@@ -121,15 +117,17 @@ class ThemeController extends Controller
         $request->validate([
            'theme' => "required|unique:themes|max:255,theme,$id",
             'description' => "required|unique:themes",
-            // niremove ko validation sa image hahaha pag nilagyan ko ayaw masaveeeeeee
-      ], [
-            // custom error message here if ever meron
-       ]);
+
+        ], [
+
+        ]);
         $themes = Theme::find($id);
         $themes->theme = $request->theme;
        $themes->description = $request->description;
 
         $themes->save();
+        Alert::success('Success', 'Theme updated successfully!');
+
         return redirect()->back()->with('message', 'Theme Updated Successfully');
     }
 
@@ -145,6 +143,7 @@ class ThemeController extends Controller
 
 
         $theme->delete();
+        Alert::warning('Delete Theme', 'Theme was deleted successfully.');
 
        return redirect()->route('themes.index');
     }

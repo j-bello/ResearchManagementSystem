@@ -9,6 +9,7 @@
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "http-interop/http-factory-guzzle": "^1.2",
+        "jhumanj/laravel-model-stats": "^0.4.0",
         "laravel/framework": "^8.75",
         "laravel/jetstream": "^2.9",
         "laravel/sanctum": "^2.11",
@@ -16,6 +17,7 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
         "meilisearch/meilisearch-php": "^0.25.0",
+        "realrashid/sweet-alert": "^5.1",
         "rtconner/laravel-tagging": "^4.1",
         "yajra/laravel-datatables-oracle": "*"
     },

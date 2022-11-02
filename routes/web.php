@@ -43,14 +43,8 @@ Route::middleware([
 
     Route::get('/titles/download/{file}', [TitleController::class, 'download'])->name('titles.download');
 
-
-   // Route::post('/titles/upload', [TitleController::class, 'upload']);
-
    Route::post('/titles/update/{id}', [TitleController::class, 'update'])->name('titles.update');
 
-  // Route::get('themes/{id}/edit/','ThemeController@edit');
-
- //  Route::get('/themes/{id}/edit', [ThemeController::class, 'edit'])->name('themes.edit');
 
     //RESEARCH THEMES
     Route::get('/themes.index', function () {
@@ -63,13 +57,9 @@ Route::middleware([
         return view('themes.create');
     })->name('themes.create');
 
-
-
-
     Route::get('/themes.edit', function () {
         return view('themes.edit');
    })->name('themes.edit');
-
 
     Route::get('/themes.show', function () {
         return view('themes.show');
@@ -79,36 +69,6 @@ Route::middleware([
         return view('themes.area');
     })->name('themes.area');
 
-    Route::get('add-remove-multiple-input-fields', [ThemeController::class, 'index']);
-    Route::post('addResearch', [ThemeController::class, 'addResearch']);
-
-
-
-
-
-
-    Route::get('/areas.index', [AreaController::class, 'index']);
-
-
-    //RESEARCH AREAS
-
-    Route::get('/researchAreas.index', function () {
-        return view('researchAreas.index');
-    })->name('researchAreas.index');
-    Route::get('/researchAreas.create', function () {
-        return view('researchAreas.create');
-    })->name('researchAreas.create');
-
-
-
-    Route::get('/researchAreas.edit', function () {
-        return view('researchAreas.edit');
-    })->name('researchAreas.edit');
-
-
-    Route::get('/researchAreas.show', function () {
-        return view('researchAreas.show');
-    })->name('researchAreas.show');
 
 
 });

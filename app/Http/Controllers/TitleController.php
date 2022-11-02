@@ -12,6 +12,7 @@ use App\Models\File as ModelsFile;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use DataTables;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class TitleController extends Controller
@@ -86,6 +87,7 @@ class TitleController extends Controller
 
        // $themes = implode(",", $request->themes);
        // $title->themes($themes);
+       Alert::success('Success', 'Title added successfully!');
 
         return redirect()->route('titles.index');
     }
@@ -132,6 +134,8 @@ class TitleController extends Controller
     {
         //
         $title->update($request->validated());
+        Alert::success('Success', 'Title updated successfully!');
+
         return redirect()->route('titles.index');
     }
 
@@ -151,6 +155,7 @@ class TitleController extends Controller
     {
         //
         $title->delete();
+        Alert::warning('Delete Title', 'Title was deleted successfully.');
 
         return redirect()->route('titles.index');
     }
