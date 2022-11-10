@@ -6,8 +6,10 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0|^9.0",
+        "barryvdh/laravel-snappy": "*",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "h4cc/wkhtmltopdf-amd64": "0.12.x",
         "http-interop/http-factory-guzzle": "^1.2",
         "jhumanj/laravel-model-stats": "^0.4.0",
         "laravel/framework": "^8.75",
@@ -15,10 +17,11 @@
         "laravel/sanctum": "^2.11",
         "laravel/scout": "^9.4",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.5",
+        "livewire/livewire": "^2.10",
         "meilisearch/meilisearch-php": "^0.25.0",
         "realrashid/sweet-alert": "^5.1",
         "rtconner/laravel-tagging": "^4.1",
+        "yajra/laravel-datatables-buttons": "*",
         "yajra/laravel-datatables-oracle": "*"
     },
     "require-dev": {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\TitlesDataTable;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreTitleRequest;
 use App\Http\Requests\UpdateTitleRequest;
@@ -13,6 +14,9 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use DataTables;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Gate;
+
+use Symfony\Component\HttpFoundation\Response;
 
 
 class TitleController extends Controller
@@ -22,40 +26,29 @@ class TitleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, TitlesDataTable $dataTable)
     {
-        //
-
-
-       // if($request->filled('search')){
-        //    $titles = Title::search($request->search)->get();
-       // }else{
-      //  //    $titles = Title::get()->take('5');
-       // }
+        $themes = Theme::all();
+        $titles = Title::all();
 
         if ($request->ajax()) {
             $data = Title::latest()->get();
             return datatables()->of(Title::select('*'))
-            ->addColumn('action', 'titles.action')
-            ->rawColumns(['action'])
-            ->addIndexColumn()
-            ->make(true);
+                ->addColumn('action', 'titles.action')
+                ->rawColumns(['action'])
+                ->addIndexColumn()
+                ->make(true);
         }
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+       // return $dataTable->render('titles.index', compact('titles', 'themes'));
 
-        $themes = Theme::all();
-       $titles = Title::all();
-      //  $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
-        return view('titles.index', compact('titles','themes'));
+        //  $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
+        return view('titles.index', compact('titles', 'themes'));
+
 
     }
 
-    public function search()
-    {
-        $themes = Theme::all();
 
-        $titles = Title::all();
-        return view('titles.search', compact('titles'));
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -76,18 +69,42 @@ class TitleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTitleRequest $request)
+    public function store(Request $request)
     {
-        //
-       // Title::create($request->validated());
-        $input = $request->all();
+
+
+        $request->validate([
+            'program' => 'required',
+            'title' => 'required|unique:titles',
+            'description' => 'required',
+            'year' => 'required',
+            'adviser' => 'required',
+            'themes' => 'required',
+
+        ], [
+            // custom error message
+        ]);
+        // if ever may foreign keys / relationships nang nakaset up, uncomment $book = Auth::user(); and $book->books()->save($book); and delete $book->save();
+        // $book = Auth::user();
+        $title = new Title();
+        $title->program = $request->program;
+        $title->title = $request->title;
+        $title->description = $request->description;
+        $title->year = $request->year;
+        $title->adviser = $request->adviser;
+        $title->themes = $request->themes;
+
+
+        $title->save();
+
+
+       // $input = $request->all();
         $tags = explode(",", $request->tags);
-        $title = Title::create($input);
+       // $title = Title::create($input);
         $title->tag($tags);
 
-       // $themes = implode(",", $request->themes);
-       // $title->themes($themes);
-       Alert::success('Success', 'Title added successfully!');
+
+        Alert::success('Success', 'Title added successfully!');
 
         return redirect()->route('titles.index');
     }
@@ -101,12 +118,12 @@ class TitleController extends Controller
     public function show($id)
     {
         //
-       // $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
+        // $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
 
-       $title = Title::find($id);
-       $file = DB::table('files')->where('title_id', $id)->latest('created_at')->first();
+        $title = Title::find($id);
+        $file = DB::table('files')->where('title_id', $id)->latest('created_at')->first();
 
-        return view('titles.show', compact('title','file'));
+        return view('titles.show', compact('title', 'file'));
     }
 
     /**
@@ -120,7 +137,7 @@ class TitleController extends Controller
         //
         $themes = Theme::all();
 
-        return view('titles.edit', compact('title','themes'));
+        return view('titles.edit', compact('title', 'themes'));
     }
 
     /**
@@ -130,10 +147,43 @@ class TitleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTitleRequest $request, Title $title)
+    public function update(Request $request, $id)
     {
         //
-        $title->update($request->validated());
+
+        $request->validate([
+            'program' => 'required',
+            'title' => 'required|unique:titles',
+            'description' => 'required',
+            'year' => 'required',
+            'adviser' => 'required',
+            'themes' => 'required',
+
+        ], [
+            // custom error message
+        ]);
+        // if ever may foreign keys / relationships nang nakaset up, uncomment $book = Auth::user(); and $book->books()->save($book); and delete $book->save();
+        // $book = Auth::user();
+        $title = Title::find($id);
+        $title->program = $request->program;
+        $title->title = $request->title;
+        $title->description = $request->description;
+        $title->year = $request->year;
+        $title->adviser = $request->adviser;
+        $title->themes = $request->themes;
+
+
+        $title->save();
+
+
+       // $input = $request->all();
+        $tags = explode(",", $request->tags);
+       // $title = Title::create($input);
+        $title->tag($tags);
+
+
+
+
         Alert::success('Success', 'Title updated successfully!');
 
         return redirect()->route('titles.index');
@@ -161,7 +211,8 @@ class TitleController extends Controller
     }
 
 
-    public function upload(Request $request, $id){
+    public function upload(Request $request, $id)
+    {
 
         $request->validate([
             'docFile' => ['nullable', 'mimes:doc,docx,pdf,csv', 'max:15000']
@@ -171,16 +222,16 @@ class TitleController extends Controller
         ]);
         $docfile = new ModelsFile();
 
-                //saving image
-                $file = $request->file('docFile');
-                $fileName = $file->getClientOriginalName();
-                $file->move(public_path('assets'), $fileName);
+        //saving image
+        $file = $request->file('docFile');
+        $fileName = $file->getClientOriginalName();
+        $file->move(public_path('assets'), $fileName);
 
-                $docfile->title_id = $id;
-                $docfile->file = $fileName;
+        $docfile->title_id = $id;
+        $docfile->file = $fileName;
 
-                $docfile->save();
-                return back()->with('updated', '');
+        $docfile->save();
+        return back()->with('updated', '');
     }
 
 
@@ -188,8 +239,36 @@ class TitleController extends Controller
 
     public function download(Request $request, $file)
     {
-        return response()->download(public_path('assets/'.$file));
+        return response()->download(public_path('assets/' . $file));
+    }
 
+
+
+
+
+    public function search()
+    {
+        $titles = Title::all();
+        $searchTerm = $_GET["searchTerm"];
+
+
+        $searchTerm = '%' . $_GET["searchTerm"] . '%';
+
+        $titles = title::where('title', 'LIKE', $searchTerm)->paginate(10);
+
+        return view('titles.create')->with(['titles' => $titles]);
+    }
+
+
+    public function view($id)
+    {
+        //
+        // $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();
+
+        $title = Title::find($id);
+        $file = DB::table('files')->where('title_id', $id)->latest('created_at')->first();
+
+        return view('titles.view', compact('title', 'file'));
     }
 
 

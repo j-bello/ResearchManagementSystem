@@ -32,7 +32,7 @@ class StoreTitleRequest extends FormRequest
                 'required','string'
             ],
 
-            'approvedBy'=>[
+            'adviser'=>[
                 'required','string'
             ],
             'year'=>[

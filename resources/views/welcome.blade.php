@@ -31,7 +31,7 @@
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-red-75 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+                        <p class="text-red-75 mb-5"> </p>
                         <a class="btn btn-primary btn-xl" href="{{ route('login') }}">Login</a>
                         <a class="btn btn-primary btn-xl mt-2" style="background-color: gray; hover" href="{{ route('register') }}">Register</a>
 

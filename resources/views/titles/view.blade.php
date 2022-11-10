@@ -162,21 +162,10 @@
                                                 <div class="row">
                                                     <div class="col mt-5">
                                                         <label for="file" class="form-label"><b></b></label>
-                                                        @if(Auth::user()->id == 1)
-
                                                         <input type="file"
                                                             class="form-control shadow-none  @error('docFile') is-invalid @enderror"
                                                             onchange="previewFile(this)" name="docFile">
-
-
-
-
-                                                        <button type="submit"
-                                                            class="hover:bg-gray-300 text-black font-bold py-2 px-4 rounded"
-                                                            style="background-color: rgb(63, 179, 63); color:aliceblue;">Submit</button>
-
-                                                @endif
-
+                                                        
 
                                                     </div>
                                                 </div>

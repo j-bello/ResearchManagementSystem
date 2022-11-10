@@ -17,13 +17,12 @@ class CreateTitlesTable extends Migration
             $table->id();
             $table->string('user_number',200)->nullable();
             $table->string('program',200)->nullable();
-            $table->string('titlecode',200)->nullable();
             $table->longText('title',200)->nullable();
             $table->longText('description',500)->nullable();
-            $table->longText('panelists',200)->nullable();
-            $table->string('approvedBy',200)->nullable();
             $table->string('year',200)->nullable();
             $table->string('themes',200)->nullable();
+            $table->string('adviser',200)->nullable();
+
             $table->timestamps();
         });
     }

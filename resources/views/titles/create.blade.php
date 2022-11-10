@@ -99,16 +99,6 @@
                             @enderror
                             </div>
 
-                            <div class="mb-3">
-                                <label for="panelists" class="block font-medium text-sm text-gray-700"
-                                style="font-weight: bold;">Panelists</label>
-                            <input type="text" name="panelists" id="panelists" type="text"
-                                class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                value="{{ old('panelists', '') }}" />
-                            @error('panelists')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-                            </div>
 
                             <div class="mb-3" id="textboxDiv">
                                 <label for="tags" class="block font-medium text-sm text-gray-700"
@@ -140,12 +130,12 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="approvedBy" class="block font-medium text-sm text-gray-700"
-                                style="font-weight: bold;">Approved By</label>
-                            <input type="text" name="approvedBy" id="approvedBy" type="text"
+                                <label for="adviser" class="block font-medium text-sm text-gray-700"
+                                style="font-weight: bold;">Adviser</label>
+                            <input type="text" name="adviser" id="adviser" type="text"
                                 class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                value="{{ old('approvedBy', '') }}" />
-                            @error('approvedBy')
+                                value="{{ old('adviser', '') }}" />
+                            @error('adviser')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                             </div>

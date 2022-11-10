@@ -34,7 +34,7 @@ class UpdateTitleRequest extends FormRequest
             'tags'=>[
                 'required','string'
             ],
-            'approvedBy'=>[
+            'adviser'=>[
                 'required','string'
             ],
             'year'=>[

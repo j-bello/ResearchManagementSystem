@@ -5,6 +5,8 @@ use App\Http\Controllers\DynamicAddRemoveFieldController;
 use App\Http\Controllers\TitleController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\SearchController;
+use App\Http\Livewire\Search;
 
 
 /*
@@ -31,43 +33,18 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/titles.search', function () {
-        return view('titles.search');
-    })->name('titles.search');
 
-    Route::get('/titles.upload', function () {
-        return view('titles.upload');
-    })->name('titles.upload');
+
+
 
     Route::post('/titles/upload/{id}', [TitleController::class, 'upload'])->name('titles.upload');
 
     Route::get('/titles/download/{file}', [TitleController::class, 'download'])->name('titles.download');
 
-   Route::post('/titles/update/{id}', [TitleController::class, 'update'])->name('titles.update');
+  // Route::post('/titles/update/{id}', [TitleController::class, 'update'])->name('titles.update');
 
 
-    //RESEARCH THEMES
-    Route::get('/themes.index', function () {
-        return view('themes.index');
-    })->name('themes.index');
 
-    Route::get('/themes.index', [ThemeController::class, 'index']);
-
-    Route::get('/themes.create', function () {
-        return view('themes.create');
-    })->name('themes.create');
-
-    Route::get('/themes.edit', function () {
-        return view('themes.edit');
-   })->name('themes.edit');
-
-    Route::get('/themes.show', function () {
-        return view('themes.show');
-    })->name('themes.show');
-
-    Route::get('/themes.area', function () {
-        return view('themes.area');
-    })->name('themes.area');
 
 
 
@@ -77,4 +54,33 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('themes', \App\Http\Controllers\ThemeController::class);
     Route::resource('titles', \App\Http\Controllers\TitleController::class);
     Route::resource('users', \App\Http\Controllers\UsersController::class);
+
 });
+
+
+Route::get('search', Search::class)
+->middleware(['auth:sanctum', 'verified'])
+->name('search');
+
+Route::get('/livewire.search', function () {
+    return view('livewire.search');
+})->name('livewire.search');
+
+
+
+Route::get('/livewire.show', function () {
+    return view('livewire.show');
+})->name('livewire.show');
+
+
+
+
+
+
+Route::get('/titles.view', function () {
+    return view('titles.view');
+})->name('titles.view');
+
+Route::get('/titles/ajax',
+[UserManagementController::class,
+     'getTitles'])->name('get-titles');
