@@ -68,10 +68,13 @@
         <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
             <!-- Button trigger modal -->
             <button type="button"
-                class="bg-green-500 hover:bg-green-700 text-sm text-white font-bold py-2 px-4 rounded ml-4"
+                class="text-sm text-white font-bold py-2 px-4 rounded ml-4"
                 style="background-color: rgb(0, 3, 158);" data-toggle="modal" data-target="#staticBackdrop">
                 <i class="fa-solid fa-plus"></i> Add Title
             </button>
+
+            <a href="{{ route('pdf.titlePDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded"
+            style="background-color: rgb(0, 3, 158);"><i class="fa-solid fa-file-pdf"></i> &nbspPDF</a>
 
 
 

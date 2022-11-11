@@ -52,7 +52,11 @@
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
         <!--  <a href="{{ route('users.create') }}" class="bg-green-500 hover:bg-green-700 text-sm text-white font-bold py-2 px-4 rounded" style="background-color: rgb(0, 3, 158);"> <i class="fa-solid fa-user-plus"></i> Add User</a> -->
-            <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
+
+        <a href="{{ route('pdf.userPDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded"
+        style="background-color: rgb(0, 3, 158);"><i class="fa-solid fa-file-pdf"></i> &nbspPDF</a>
+
+        <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
 
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -73,6 +77,7 @@
                                     <th scope="col"  class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
                                         Email
                                     </th>
+
 
 
                                     <th scope="col"  class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
@@ -121,7 +126,7 @@
                   {data: 'email', name: 'email'},
                  // {data: 'email_verified_at', name: 'email_verified_at'},
 
-                //  {data: 'roles', name: 'roles'},
+                  //{data: 'role.title', name: 'role.title'},
 
 
                   {data: 'action', name: 'action', orderable: false, searchable: false},

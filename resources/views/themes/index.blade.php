@@ -75,6 +75,9 @@
                 <i class="fa-solid fa-plus"></i> Add Theme
             </button>
 
+            <a href="{{ route('pdf.themePDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded"
+            style="background-color: rgb(0, 3, 158);"><i class="fa-solid fa-file-pdf"></i> &nbspPDF</a>
+
 
 
             <!--CREATE TITLE-->

@@ -39,7 +39,7 @@ class TitleController extends Controller
                 ->addIndexColumn()
                 ->make(true);
         }
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('user_access') && Gate::denies('titles_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
        // return $dataTable->render('titles.index', compact('titles', 'themes'));
 
         //  $titles = DB::table('titles')->select("*", DB::raw("CONCAT(titles.program,'',titles.id) AS titlecode"))->get();

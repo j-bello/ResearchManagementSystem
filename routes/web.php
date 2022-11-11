@@ -7,6 +7,7 @@ use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\SearchController;
 use App\Http\Livewire\Search;
+use App\Http\Controllers\PDFController;
 
 
 /*
@@ -84,3 +85,15 @@ Route::get('/titles.view', function () {
 Route::get('/titles/ajax',
 [UserManagementController::class,
      'getTitles'])->name('get-titles');
+
+//Route::get('/pdf/previewTitles', [PDFController::class, 'showTitles']);
+//Route::get('/title/pdf', [PDFController::class, 'titlePDF']);
+
+Route::get('pdf/showTitles', [PDFController::class, 'showTitles'])->name('pdf.showTitles');
+Route::get('pdf/titlePDF', [PDFController::class, 'titlePDF'])->name('pdf.titlePDF');
+
+Route::get('pdf/showUsers', [PDFController::class, 'showUsers'])->name('pdf.showUsers');
+Route::get('pdf/userPDF', [PDFController::class, 'userPDF'])->name('pdf.userPDF');
+
+Route::get('pdf/showThemes', [PDFController::class, 'showThemes'])->name('pdf.showThemes');
+Route::get('pdf/themePDF', [PDFController::class, 'themePDF'])->name('pdf.themePDF');
