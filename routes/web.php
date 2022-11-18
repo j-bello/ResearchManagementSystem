@@ -8,7 +8,8 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\SearchController;
 use App\Http\Livewire\Search;
 use App\Http\Controllers\PDFController;
-
+use Illuminate\Support\Facades\Auth;
+use Laravel\Fortify\Contracts\ResetsUserPasswords;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,11 @@ use App\Http\Controllers\PDFController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -82,9 +84,7 @@ Route::get('/titles.view', function () {
     return view('titles.view');
 })->name('titles.view');
 
-Route::get('/titles/ajax',
-[UserManagementController::class,
-     'getTitles'])->name('get-titles');
+
 
 //Route::get('/pdf/previewTitles', [PDFController::class, 'showTitles']);
 //Route::get('/title/pdf', [PDFController::class, 'titlePDF']);
@@ -97,3 +97,7 @@ Route::get('pdf/userPDF', [PDFController::class, 'userPDF'])->name('pdf.userPDF'
 
 Route::get('pdf/showThemes', [PDFController::class, 'showThemes'])->name('pdf.showThemes');
 Route::get('pdf/themePDF', [PDFController::class, 'themePDF'])->name('pdf.themePDF');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

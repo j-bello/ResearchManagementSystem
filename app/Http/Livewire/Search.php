@@ -18,7 +18,13 @@ class Search extends Component
     {
        // $titles = Title::all();
         return view('livewire.search', [
-            'titles' => Title::where('title', 'like', '%'.$this->search.'%')->paginate(5),
+            'titles' => Title::where('title', 'like', '%'.$this->search.'%')
+            ->orWhere('adviser', 'like', '%'.$this->search.'%')
+            ->orWhere('themes', 'like', '%'.$this->search.'%')
+            ->orWhere('program', 'like', '%'.$this->search.'%')
+            ->orWhere('year', 'like', '%'.$this->search.'%')->paginate(5),
+
+
 
         ]);
 

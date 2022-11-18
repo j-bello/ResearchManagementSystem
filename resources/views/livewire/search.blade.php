@@ -2,11 +2,13 @@
     <div class="max-w-screen-full mx-auto sm:px-6 lg:px-5">
         <div>
 
-            <img src="/uploads/logo2.png" class="logo">
+            <img src="/uploads/logo2.png" class="logo" id="logo2">
+
             <div>
             <input type="text" class="float-none bg-white-300 text-black font-bold py-2 px-4 rounded my-3 border-black"
-            style="width: 100%; border: 2px solid #00039e;" placeholder="Enter keywords or title" id="search" wire:model="search" />
+            style="width: 100%; border: 2px solid #00039e;" placeholder="Enter keywords or title" id="search" wire:model="search"/>
             </div>
+
 
         </div>
         <div class="bg-blue-300 overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">

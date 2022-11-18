@@ -61,8 +61,11 @@
         </h2>
 
     </x-slot>
+<body>
+
 
     @include('sweetalert::alert')
+
 
     <div>
         <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
@@ -74,7 +77,7 @@
             </button>
 
             <a href="{{ route('pdf.titlePDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded"
-            style="background-color: rgb(0, 3, 158);"><i class="fa-solid fa-file-pdf"></i> &nbspPDF</a>
+            style="background-color: #00039e;"><i class="fa-solid fa-file-pdf"></i> &nbspPDF</a>
 
 
 

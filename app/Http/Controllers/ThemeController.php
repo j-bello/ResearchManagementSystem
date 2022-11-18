@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Theme;
 use Symfony\Component\Console\Input\Input;
-use DB;
+//use DB;
 use DataTables;
 use Redirect,Response;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\DB;
+
 
 
 class ThemeController extends Controller
@@ -174,5 +176,8 @@ class ThemeController extends Controller
       //  }
 
     //    return back()->with('success', 'Research Areas Has Been Created Successfully.');
+
+
+
     }
 

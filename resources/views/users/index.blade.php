@@ -56,7 +56,14 @@
         <a href="{{ route('pdf.userPDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded"
         style="background-color: rgb(0, 3, 158);"><i class="fa-solid fa-file-pdf"></i> &nbspPDF</a>
 
+        <button type="button"
+        class="text-sm text-white font-bold py-2 px-4 rounded ml-2"
+        style="background-color: rgb(0, 3, 158);" onclick="Open()">
+        <i class="fa-solid fa-memo-circle-info"></i> Activity Logs
+    </button>
         <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
+
+
 
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -145,7 +152,11 @@
 
 
 
-
+<script>
+    function Open() {
+            window.open("/admin/user-activity", "_blank");
+        }
+</script>
 
 
 </x-app-layout>

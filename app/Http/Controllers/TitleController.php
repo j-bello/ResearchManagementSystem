@@ -271,5 +271,12 @@ class TitleController extends Controller
         return view('titles.view', compact('title', 'file'));
     }
 
+    public function wordcloud(){
+        $titles  = DB::select('SELECT program * FROM titles');
+
+        return view('dashboard', compact('titles'));
+    }
+
+
 
 }

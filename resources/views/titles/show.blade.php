@@ -162,7 +162,7 @@
                                                 <div class="row">
                                                     <div class="col mt-5">
                                                         <label for="file" class="form-label"><b></b></label>
-                                                        @if(Auth::user()->id == 1 || 2)
+                                                        @if(Auth::user()->id == 1)
 
                                                         <input type="file"
                                                             class="form-control shadow-none  @error('docFile') is-invalid @enderror"
