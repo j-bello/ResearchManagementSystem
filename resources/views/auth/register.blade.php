@@ -9,7 +9,9 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <center>
+
             <img src="/uploads/logofinal.png" width="300" height="300">
+
 </center>
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />

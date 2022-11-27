@@ -71,6 +71,8 @@
         </h2>
 
     </x-slot>
+<body>
+
 
     <body
         style="background-image: url(/uploads/bgfinal.png); background-size: 100% 100%; background-repeat: no-repeat;">

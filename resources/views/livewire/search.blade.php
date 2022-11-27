@@ -4,10 +4,12 @@
     <div class="max-w-screen-full mx-auto sm:px-6 lg:px-5">
         <div>
 
+
             <img src="/uploads/logofinal.png" class="logo" id="logofinal">
             <div>
             <input type="text" class="float-none bg-white-300 text-black font-bold py-2 px-4 rounded my-3 border-black"
             style="width: 100%; border: 2px solid #00039e;" placeholder="Enter keywords or title" id="search" wire:model="search" oninput="hidediv()"/>
+
             </div>
 
 

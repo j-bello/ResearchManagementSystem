@@ -16,14 +16,13 @@ class Search extends Component
 
     public function render()
     {
-      
-        return view('livewire.search', [
-          'titles' => Title::where('title', 'like', '%'.$this->search.'%')
-          ->orWhere('adviser', 'like', '%'.$this->search.'%')
-          ->orWhere('themes', 'like', '%'.$this->search.'%')
-          ->orWhere('program', 'like', '%'.$this->search.'%')
-          ->orWhere('year', 'like', '%'.$this->search.'%')->paginate(5),
 
+        return view('livewire.search', [
+            'titles' => Title::where('title', 'like', '%'.$this->search.'%')
+            ->orWhere('adviser', 'ilike', '%'.$this->search.'%')
+            ->orWhere('themes', 'ilike', '%'.$this->search.'%')
+            ->orWhere('program', 'ilike', '%'.$this->search.'%')
+            ->orWhere('year', 'ilike', '%'.$this->search.'%')->paginate(5),
 
 
       ]);
