@@ -27,13 +27,13 @@
 <body class="font-sans antialiased">
     <x-jet-banner />
 
-    <div class="">
+    <div class="min-h-screen">
         @livewire('navigation-menu')
 
         <!-- Page Heading -->
         @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <header class="bg-white shadow " >
+                <div class="max-w-sm hover:max-w-lg mx-auto py-6 px-4 sm:px-6 lg:px-8 text-white" style="background-color: #00308F;">
                     {{ $header }}
                 </div>
             </header>

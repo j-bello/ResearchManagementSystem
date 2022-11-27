@@ -51,252 +51,257 @@
 
 
 
+        #data-table {
+
+
+            background: #00308F;
+
+
+
+
+
+        }
     </style>
 
 </head>
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-l text-gray-800 leading-tight">
+        <h2 class="font-semibold text-l text-white leading-tight">
             Titles List
         </h2>
 
     </x-slot>
 
-    @include('sweetalert::alert')
-
-    <div>
-        <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
-            <!-- Button trigger modal -->
-            <button type="button"
-                class="text-sm text-white font-bold py-2 px-4 rounded ml-4"
-                style="background-color: rgb(0, 3, 158);" data-toggle="modal" data-target="#staticBackdrop">
-                <i class="fa-solid fa-plus"></i> Add Title
-            </button>
-
-            <a href="{{ route('pdf.titlePDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded"
-            style="background-color: rgb(0, 3, 158);"><i class="fa-solid fa-file-pdf"></i> &nbspPDF</a>
+    <body
+        style="background-image: url(/uploads/bgfinal.png); background-size: 100% 100%; background-repeat: no-repeat;">
 
 
-
-            <!--CREATE TITLE-->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Create Title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
+        @include('sweetalert::alert')
 
 
-                            <!-- card -->
-                            <div class="card p-3">
+        <div>
+            <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
+                <!-- Button trigger modal -->
+                <button type="button" class="text-sm text-white font-bold py-2 px-4 rounded ml-4 "
+                    style="background-color: #228c22;" data-toggle="modal" data-target="#staticBackdrop">
+                    <i class="fa-sharp fa-solid fa-book"></i> &nbspADD TITLE
+                </button>
 
-                                <!-- form -->
-                                <form method="POST" action="{{ route('titles.store') }}" enctype="multipart/form-data"
-                                    id="form">
-                                    @csrf
-                                    <div class="mb-3" id="textboxDiv">
-                                        <label for="program" class="block font-medium text-sm text-gray-700"
-                                            style="font-weight: bold;">Program</label>
-                                        <select name="program" id="program"
-                                            class="form-multiselect block rounded-md shadow-sm mt-1 block w-full">
-                                            <option selected disabled>Select Program</option>
-                                            <option value="CS">Computer Science</option>
-                                            <option value="IT">Information Technology</option>
-                                            <option value="IS">Information Systems</option>
-                                            <option value="EMC">Entertainment and Mobile Computing</option>
-                                        </select>
-                                        @error('program')
-                                            <p class="text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
+                <a href="{{ route('pdf.titlePDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded ml-2"
+                    style="background-color: #00039e;"><i class="fa-solid fa-file-pdf"></i> &nbspPDF</a>
 
-                                    </div>
-
-
-                                    <div class="mb-3">
-                                        <label for="title" class="block font-medium text-sm text-gray-700"
-                                            style="font-weight: bold;">Title</label>
-                                        <input type="text" name="title" id="title" type="text"
-                                            class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                            value="{{ old('title', '') }}" />
-                                        @error('title')
-                                            <p class="text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
-
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="description" class="block font-medium text-sm text-gray-700"
-                                            style="font-weight: bold;">Description</label>
-                                        <input type="text" name="description" id="description" type="text"
-                                            class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                            value="{{ old('description', '') }}" />
-                                        @error('description')
-                                            <p class="text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
-                                    </div>
+                <br><br>
 
 
 
-                                    <div class="mb-3" id="textboxDiv">
-                                        <label for="tags" class="block font-medium text-sm text-gray-700"
-                                            style="font-weight: bold;">Research Topics</label>
-                                        <input type="text" name="tags" id="tags" type="text"
-                                            data-role="tagsinput"
-                                            class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                            value="{{ old('tags', '') }}" />
-                                        @error('tags')
-                                            <p class="text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
-                                    </div>
+                <!--CREATE TITLE-->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Create Title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
 
-                                    <div class="mb-3">
-                                        <label for="themes" class="block font-medium text-sm text-gray-700"
-                                            style="font-weight: bold;">Themes</label>
 
-                                        <select name="themes" id="themes"
-                                            class="form-multiselect block rounded-md shadow-sm mt-1 block w-full">
+                                <!-- card -->
+                                <div class="card p-3">
 
-                                            <option selected disabled>Select Theme</option>
+                                    <!-- form -->
+                                    <form method="POST" action="{{ route('titles.store') }}"
+                                        enctype="multipart/form-data" id="form">
+                                        @csrf
+                                        <div class="mb-3" id="textboxDiv">
+                                            <label for="program" class="block font-medium text-sm text-gray-700"
+                                                style="font-weight: bold;">Program</label>
+                                            <select name="program" id="program"
+                                                class="form-multiselect block rounded-md shadow-sm mt-1 block w-full">
+                                                <option selected disabled>Select Program</option>
+                                                <option value="CS">Computer Science</option>
+                                                <option value="IT">Information Technology</option>
+                                                <option value="IS">Information Systems</option>
+                                                <option value="EMC">Entertainment and Mobile Computing</option>
+                                            </select>
+                                            @error('program')
+                                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
 
-                                            @foreach ($themes as $theme)
-                                                <option value="{{ $theme->theme }}">{{ $theme->theme }}</option>
-                                            @endforeach
+                                        </div>
 
-                                        </select>
-                                        @error('themes')
-                                            <p class="text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
-                                    </div>
 
-                                    <div class="mb-3">
-                                        <label for="adviser" class="block font-medium text-sm text-gray-700"
-                                            style="font-weight: bold;">Adviser</label>
-                                        <input type="text" name="adviser" id="adviser" type="text"
-                                            class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                            value="{{ old('adviser', '') }}" />
-                                        @error('adviser')
-                                            <p class="text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
-                                    </div>
+                                        <div class="mb-3">
+                                            <label for="title" class="block font-medium text-sm text-gray-700"
+                                                style="font-weight: bold;">Title</label>
+                                            <input type="text" name="title" id="title" type="text"
+                                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                                value="{{ old('title', '') }}" />
+                                            @error('title')
+                                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
 
-                                    <div class="mb-3">
-                                        <label for="year" class="block font-medium text-sm text-gray-700"
-                                            style="font-weight: bold;">Year</label>
-                                        <input type="text" name="year" id="year" type="text"
-                                            class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                            value="{{ old('year', '') }}" />
-                                        @error('year')
-                                            <p class="text-sm text-red-600">{{ $message }}</p>
-                                        @enderror
-                                    </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="description" class="block font-medium text-sm text-gray-700"
+                                                style="font-weight: bold;">Abstract</label>
+                                            <textarea name="description" id="description" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                                value="{{ old('description', '') }}"> </textarea>
+                                            @error('description')
+                                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+
+
+                                        <div class="mb-3" id="textboxDiv">
+                                            <label for="tags" class="block font-medium text-sm text-gray-700"
+                                                style="font-weight: bold;">Research Topics</label>
+                                            <input type="text" name="tags" id="tags" type="text"
+                                                data-role="tagsinput"
+                                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                                value="{{ old('tags', '') }}" />
+                                            @error('tags')
+                                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="themes" class="block font-medium text-sm text-gray-700"
+                                                style="font-weight: bold;">Themes</label>
+
+                                            <select name="themes" id="themes"
+                                                class="form-multiselect block rounded-md shadow-sm mt-1 block w-full">
+
+                                                <option selected disabled>Select Theme</option>
+
+                                                @foreach ($themes as $theme)
+                                                    <option value="{{ $theme->theme }}">{{ $theme->theme }}</option>
+                                                @endforeach
+
+                                            </select>
+                                            @error('themes')
+                                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="adviser" class="block font-medium text-sm text-gray-700"
+                                                style="font-weight: bold;">Adviser</label>
+                                            <input type="text" name="adviser" id="adviser" type="text"
+                                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                                value="{{ old('adviser', '') }}" />
+                                            @error('adviser')
+                                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="year" class="block font-medium text-sm text-gray-700"
+                                                style="font-weight: bold;">Year</label>
+                                            <input type="text" name="year" id="year" type="text"
+                                                class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                                value="{{ old('year', '') }}" />
+                                            @error('year')
+                                                <p class="text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+
+                                </div>
 
 
                             </div>
-
-
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-warning text-light"
+                                    style="background-color: rgb(0, 3, 158); border-color: rgb(0, 3, 158);">Create
+                                    Title</button>
+                            </div>
+                            </form>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-warning text-light"
-                                style="background-color: rgb(0, 3, 158); border-color: rgb(0, 3, 158);">Create
-                                Title</button>
-                        </div>
-                        </form>
+
                     </div>
-
                 </div>
-            </div>
+
+
+                <div>
+
+
+                    <div class="max-w-screen-xl mx-auto py-10 sm:px-6 lg:px-8" style="background:#00308F">
+                        <div class="flex flex-col">
+                            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+                                        style="background:#FFFFFF">
+
+                                        <div class="container mt-3 mb-3">
+                                            <table class="table table-bordered data-table" id="data-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col"
+                                                            class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
+                                                            ID</th>
+                                                        <th scope="col"
+                                                            class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
+                                                            Program</th>
+                                                        <th scope="col"
+                                                            class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
+                                                            Title</th>
+                                                        <th scope="col"
+                                                            class="px-6 py-3 font-medium text-left text-white truncate"
+                                                            id=abstract style="width:300px">
+                                                            Abstract</th>
 
 
 
 
+                                                        <th scope="col"
+                                                            class="px-6 py-3 font-medium text-left text-white  whitespace-nowrap">
+                                                            Adviser</th>
+                                                        <th scope="col"
+                                                            class="px-6 py-3 font-medium text-left text-white  whitespace-nowrap">
+                                                            Year
+                                                        </th>
+                                                        <th scope="col"
+                                                            class="px-6 py-3 font-medium text-left text-white  whitespace-nowrap">
+                                                            Agenda</th>
+                                                        <th scope="col"
+                                                            class="px-6 py-3 font-medium text-left text-white  whitespace-nowrap">
+                                                            Actions</th>
 
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
 
-
-
-
-
-
-
-
-
-            <div>
-
-
-                <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
-                    <div class="flex flex-col">
-                        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-
-                                    <div class="container mt-3 mb-3" >
-                                    <table class="table table-bordered data-table" id="data-table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col"
-                                                    class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
-                                                    ID</th>
-                                                    <th scope="col"
-                                                    class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
-                                                    Program</th>
-                                                <th scope="col"
-                                                    class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
-                                                    Title</th>
-                                                <th scope="col"
-                                                    class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
-                                                    Abstract</th>
-
-
-
-
-                                                <th scope="col"
-                                                    class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
-                                                    Adviser</th>
-                                                <th scope="col"
-                                                    class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
-                                                    Year
-                                                </th>
-                                                <th scope="col"
-                                                    class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
-                                                    Agenda</th>
-                                                <th scope="col"
-                                                    class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
-                                                    Actions</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
 
+
                 </div>
 
 
-            </div>
 
 
-
-
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-            </script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-            </script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-            </script>
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+                </script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+                </script>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.js"></script>
 
@@ -304,24 +309,91 @@
 
 
                 <script type="text/javascript">
-                    $(function () {
-                      var table = $('.data-table').DataTable({
-                          processing: true,
-                          serverSide: true,
-                          ajax: "{{ route('titles.index') }}",
-                          columns: [
-                              {data: 'id', name: 'id'},
-                              {data: 'program', name: 'program'},
-                              {data: 'title', name: 'title'},
-                              {data: 'description', name: 'description'},
-                              {data: 'adviser', name: 'adviser'},
-                              {data: 'year', name: 'year'},
-                              {data: 'themes', name: 'themes'},
-                              {data: 'action', name: 'action', orderable: false, searchable: false},
-                          ]
-                      });
+                    $(function() {
+                        $.fn.dataTable.render.ellipsis = function(cutoff, wordbreak, escapeHtml) {
+                            var esc = function(t) {
+                                return t
+                                    .replace(/&/g, '&amp;')
+                                    .replace(/</g, '&lt;')
+                                    .replace(/>/g, '&gt;')
+                                    .replace(/"/g, '&quot;');
+                            };
+
+                            return function(d, type, row) {
+                                // Order, search and type get the original data
+                                if (type !== 'display') {
+                                    return d;
+                                }
+
+                                if (typeof d !== 'number' && typeof d !== 'string') {
+                                    return d;
+                                }
+
+                                d = d.toString(); // cast numbers
+
+                                if (d.length < cutoff) {
+                                    return d;
+                                }
+
+                                var shortened = d.substr(0, cutoff - 1);
+
+                                // Find the last white space character in the string
+                                if (wordbreak) {
+                                    shortened = shortened.replace(/\s([^\s]*)$/, '');
+                                }
+
+                                // Protect against uncontrolled HTML input
+                                if (escapeHtml) {
+                                    shortened = esc(shortened);
+                                }
+
+                                return '<span class="ellipsis" title="' + esc(d) + '">' + shortened + '&#8230;</span>';
+                            };
+                        };
+                        var table = $('.data-table').DataTable({
+                            processing: true,
+                            serverSide: true,
+                            ajax: "{{ route('titles.index') }}",
+                            columns: [{
+                                    data: 'id',
+                                    name: 'id'
+                                },
+                                {
+                                    data: 'program',
+                                    name: 'program'
+                                },
+                                {
+                                    data: 'title',
+                                    name: 'title'
+                                },
+                                {
+                                    data: 'description',
+                                    name: 'description',
+                                    targets: 0,
+                                    render: $.fn.dataTable.render.ellipsis(50)
+                                },
+                                {
+                                    data: 'adviser',
+                                    name: 'adviser'
+                                },
+                                {
+                                    data: 'year',
+                                    name: 'year'
+                                },
+                                {
+                                    data: 'themes',
+                                    name: 'themes'
+                                },
+                                {
+                                    data: 'action',
+                                    name: 'action',
+                                    orderable: false,
+                                    searchable: false
+                                },
+                            ]
+                        });
                     });
-                  </script>
+                </script>
 
 
 </x-app-layout>

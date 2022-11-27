@@ -40,47 +40,58 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-l text-gray-800 leading-tight">
+        <h2 class="font-semibold text-l text-white leading-tight">
             Users List
         </h2>
     </x-slot>
 
+    @include('sweetalert::alert')
 
-
+    <body style="background-image: url(/uploads/bgfinal.png); background-size: 100% 100%; background-repeat: no-repeat;">
 
     <div>
-        <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="max-w-full mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
         <!--  <a href="{{ route('users.create') }}" class="bg-green-500 hover:bg-green-700 text-sm text-white font-bold py-2 px-4 rounded" style="background-color: rgb(0, 3, 158);"> <i class="fa-solid fa-user-plus"></i> Add User</a> -->
 
-        <a href="{{ route('pdf.userPDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded"
+        <a href="{{ route('pdf.userPDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded ml-2"
         style="background-color: rgb(0, 3, 158);"><i class="fa-solid fa-file-pdf"></i> &nbspPDF</a>
 
-        <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
+        <button type="button"
+        class="text-sm text-white font-bold py-2 px-4 rounded ml-2"
+        style="background-color: rgb(0, 3, 158);" onclick="Open()">
+        <i class="fa-sharp fa-solid fa-desktop"></i> &nbspActivity Logs
+    </button>
+
+
+    <br> <br>
+        <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8" style="background:#00308F">
+
+
 
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg" style="background:#FFFFFF">
 
                             <div class="container mt-3 mb-3">
 
                             <table class="table table-bordered data-table" id="data-table">
                                 <thead>
                                 <tr>
-                                    <th scope="col" width="50"  class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
+                                    <th scope="col" width="50"  class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
                                         ID
                                     </th>
-                                    <th scope="col"  class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
+                                    <th scope="col"  class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
                                         Name
                                     </th>
-                                    <th scope="col"  class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
+                                    <th scope="col"  class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
                                         Email
                                     </th>
 
 
 
-                                    <th scope="col"  class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
+                                    <th scope="col"  class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
                                         Actions
                                     </th>
                                 </tr>
@@ -98,7 +109,7 @@
 
         </div>
     </div>
-
+    </body>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
 </script>
@@ -145,10 +156,28 @@
 
 
 
-
+<script>
+    function Open() {
+            window.open("/admin/user-activity", "_blank");
+        }
+</script>
 
 
 </x-app-layout>
 </body>
 
 </html>
+
+
+<style>
+     #data-table {
+
+
+        background:#00308F;
+
+
+
+
+
+            }
+</style>

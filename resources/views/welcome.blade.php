@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Research Management System</title>
+        <title>RepoCITE</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -27,7 +27,7 @@
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
 
-                        <h1 class="text-red font-weight-bold">Research Management System</h1>
+                        <h1 class="text-red font-weight-bold">Thesis and Capstone Projects Repository System</h1>
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
@@ -42,7 +42,7 @@
 </div>
 <div class="split right">
   <div class="centered">
-    <img src="/uploads/bg1.png" class="img-fluid">
+    <img src="/uploads/logofinal.png" class="img-fluid">
   </div>
 </div>
 

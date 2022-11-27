@@ -10830,7 +10830,7 @@ hr.divider-light {
 /* Control the right side */
 .right {
   right: 0;
- background-color: var(--bs-yellow);
+ background-color: #ffb703;
  
 }
 .img-fluid{

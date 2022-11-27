@@ -1,47 +1,60 @@
 
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 font-bold">
+<nav x-data="{ open: false }" class="
+relative
+w-full
+flex flex-wrap
+items-center
+justify-between
+py-4
+bg-gray-100
+text-gray-500
+hover:text-gray-700
+focus:text-gray-700
+shadow-lg
+navbar navbar-expand-lg navbar-light
+">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-bold">
-        <div class="flex justify-between h-16 font-bold">
+    <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 font-bold text-white">
+        <div class="flex justify-between h-16 font-bold ">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center py-6 content-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="{{asset('/uploads/logo2.png')}}" height="60" width="60"> </a>
+                        <img src="{{asset('/uploads/logofinal.png')}}" height="80" width="80"> </a>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold" >
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold ">
+                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')"  class="text-black">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
 
             @can('titles_access')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold" >
-                    <x-jet-nav-link href="{{ route('titles.index') }}" :active="request()->routeIs('titles.index')">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold">
+                    <x-jet-nav-link href="{{ route('titles.index') }}" :active="request()->routeIs('titles.index')" class="text-black">
                         Titles
                     </x-jet-nav-link>
                 </div>
             @endcan
             @can('user_access')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold">
-                    <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                    <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.*')" class="text-black">
                         Users
                     </x-jet-nav-link>
                 </div>
             @endcan
             @can('themes_access')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold">
-                    <x-jet-nav-link href="{{ route('themes.index') }}" :active="request()->routeIs('themes.*')">
+                    <x-jet-nav-link href="{{ route('themes.index') }}" :active="request()->routeIs('themes.*')" class="text-black">
                         Research Themes
                     </x-jet-nav-link>
                 </div>
             @endcan
             @can('search_access')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex font-bold" >
-                    <x-jet-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')">
+                    <x-jet-nav-link href="{{ route('search') }}" :active="request()->routeIs('search')" class="text-black">
                         {{ __('Search') }}
 
                     </x-jet-nav-link>
@@ -172,6 +185,13 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+
+            <x-jet-responsive-nav-link href="{{ route('titles.index') }}" :active="request()->routeIs('titles.index')">
+                        Titles
+                    </x-jet-responsive-nav-link>
+
+
+
         </div>
 
         <!-- Responsive Settings Options -->
@@ -252,5 +272,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+
 }
 </style>

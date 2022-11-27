@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-l text-gray-800 leading-tight">
+        <h2 class="font-semibold text-l text-white leading-tight">
             Show Theme
         </h2>
     </x-slot>
 
-
+<br><br>
 
     <div>
-        <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8" style="background-color: #00308F; border-radius: 5px;">
 
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -18,7 +18,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-black uppercase tracking-wider">
                                         ID
                                     </th>
                                     <td
@@ -29,7 +29,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-black uppercase tracking-wider">
                                         Theme
                                     </th>
                                     <td
@@ -40,7 +40,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-black uppercase tracking-wider">
                                         Description
                                     </th>
                                     <td

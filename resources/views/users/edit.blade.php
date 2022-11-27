@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-l text-gray-800 leading-tight">
+        <h2 class="font-semibold text-l text-white leading-tight">
             Edit User
         </h2>
     </x-slot>
-
+<br> <br>
     <div>
-        <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8" style="background-color: #00308F; border-radius: 5px;">
             <div class="mt-5 md:mt-0 md:col-span-2">
                 <form method="post" action="{{ route('users.update', $user->id) }}">
                     @csrf

@@ -36,8 +36,8 @@
     <style>
         .bootstrap-tagsinput .tag {
             margin-right: 2px;
-            color: #ffffff;
-            background: #000000;
+            color: #00308F;
+            background: #00308F;
             padding: 3px 7px;
             border-radius: 3px;
         }
@@ -45,37 +45,40 @@
         .bootstrap-tagsinput {
             width: 100%;
             line-height: 30px;
+
         }
 
         .shadow {
     box-shadow: 0;
 }
+
+
     </style>
 
 </head>
 
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-l text-gray-800 leading-tight">
+        <h2 class="font-semibold text-l text-white leading-tight">
             Themes List
         </h2>
 
     </x-slot>
 
-
+    <body style="background-image: url(/uploads/bgfinal.png); background-size: 100% 100%; background-repeat: no-repeat;">
 @include('sweetalert::alert')
 
 
     <div>
-        <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             <!-- Button trigger modal -->
             <button type="button"
                 class="bg-green-500 hover:bg-green-700 text-sm text-white font-bold py-2 px-4 rounded ml-4"
-                style="background-color: #00039e;" data-toggle="modal" data-target="#staticBackdrop">
-                <i class="fa-solid fa-plus"></i> Add Theme
+                style="background-color: #228c22;" data-toggle="modal" data-target="#staticBackdrop">
+                <i class="fa-sharp fa-solid fa-book"></i> &nbspAdd Theme
             </button>
 
-            <a href="{{ route('pdf.themePDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded"
+            <a href="{{ route('pdf.themePDF') }}" class="text-sm text-white font-bold py-2 px-4 rounded ml-2"
             style="background-color: rgb(0, 3, 158);"><i class="fa-solid fa-file-pdf"></i> &nbspPDF</a>
 
 
@@ -139,12 +142,13 @@
             </div>
         </div>
     </div>
-    <div class="max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
+
+    <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8" style="background:#00308F">
 
                 <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg" style="background:#FFFFFF">
 
                                 <div class="container mt-3 mb-3">
 
@@ -152,16 +156,16 @@
                                     <thead>
                                         <tr>
                                             <th scope="col"
-                                                class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
+                                                class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
                                                 ID</th>
                                             <th scope="col"
-                                                class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
+                                                class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
                                                 Theme</th>
                                             <th scope="col"
-                                                class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
+                                                class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
                                                 Description</th>
                                             <th scope="col"
-                                                class="px-6 py-3 font-medium text-left text-gray-900 whitespace-nowrap">
+                                                class="px-6 py-3 font-medium text-left text-white whitespace-nowrap">
                                                 Actions</th>
                                         </tr>
                                     </thead>
@@ -178,11 +182,8 @@
                 </div>
 
             </div>
-
-
-        </div>
+            </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -236,3 +237,18 @@
         </body >
 
             </html>
+
+
+            <style>
+
+#data-table {
+
+
+           background:#00308F;
+
+
+
+
+
+            }
+            </style>

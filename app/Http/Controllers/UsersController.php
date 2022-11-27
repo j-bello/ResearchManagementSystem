@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -71,6 +72,7 @@ class UsersController extends Controller
         $user->update($request->validated());
         $user->roles()->sync($request->input('roles', []));
 
+        Alert::success('Success', 'User updated successfully!');
         return redirect()->route('users.index');
     }
 
@@ -79,7 +81,31 @@ class UsersController extends Controller
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $user->delete();
-
+        Alert::warning('Delete Title','Account Removed Successfully!');
         return redirect()->route('users.index');
     }
+
+
+    public function uploadUser($id){
+        $data = user::find($id);
+
+        $data->uploader = 'yes';
+        $data->save();
+        Alert::success('Success', 'User has been set as a file uploader!');
+
+        return redirect()->back();
+    }
+
+
+    public function uploadRemove($id){
+        $data = user::find($id);
+
+        $data->uploader = null;
+        $data->save();
+        Alert::warning('Remove Privileges', 'File upload privileges has been removed.');
+
+        return redirect()->back();
+    }
+
+
 }

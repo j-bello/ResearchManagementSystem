@@ -1,12 +1,15 @@
+
+
 <div class="py-12">
     <div class="max-w-screen-full mx-auto sm:px-6 lg:px-5">
         <div>
 
-            <img src="/uploads/logo2.png" class="logo">
+            <img src="/uploads/logofinal.png" class="logo" id="logofinal">
             <div>
             <input type="text" class="float-none bg-white-300 text-black font-bold py-2 px-4 rounded my-3 border-black"
-            style="width: 100%; border: 2px solid #00039e;" placeholder="Enter keywords or title" id="search" wire:model="search" />
+            style="width: 100%; border: 2px solid #00039e;" placeholder="Enter keywords or title" id="search" wire:model="search" oninput="hidediv()"/>
             </div>
+
 
         </div>
         <div class="bg-blue-300 overflow-hidden shadow-xl sm:rounded-lg px-4 py-4">
@@ -25,8 +28,6 @@
                                 <td class="border border-black px-4 py-2 text-left w-full " onclick="window.location='{{ route('titles.show', $title->id) }}'" style="cursor: pointer;">
 
                                     <strong>Title: </strong> <i> {{ $title->title }}</i>
-                                    <br>
-                                    <strong>Abstract: </strong> {{ $title->description }}
                                     <br>
                                     <strong>Adviser: </strong> {{ $title->adviser }}
                                     <br>
@@ -54,12 +55,13 @@
         </div>
     </div>
 </div>
-
+</div>
 
 
 </html>
 
 <style>
+
     .logo {
   display: block;
   margin-left: auto;
@@ -77,3 +79,9 @@
 }
 
 </style>
+
+<script type="text/javascript">
+   function hidediv() {
+  document.getElementById("logo2").style.display = "none";
+    }
+</script>

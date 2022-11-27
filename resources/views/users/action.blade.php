@@ -4,6 +4,12 @@
 <a href="{{ route('users.edit', $id) }}" data-toggle="tooltip" data-original-title="Edit">
     <i class="fa-solid fa-user-pen"></i>
 </a>
+<a href="{{ route('users.uploadUser', $id) }}" data-toggle="tooltip" data-original-title="uploadUser">
+    <i class="fa-solid fa-file-arrow-up"></i>
+</a>
+<a href="{{ route('users.uploadRemove', $id) }}" data-toggle="tooltip" data-original-title="uploadRemove">
+    <i class="fas fa-minus-square"></i>
+</a>
 <form class="inline-block" action="{{ route('users.destroy', $id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">

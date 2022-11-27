@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-l text-gray-800 leading-tight">
+        <h2 class="font-semibold text-l text-white leading-tight">
             Show Title
         </h2>
     </x-slot>
-
+    <br> <br>
     <div>
-        <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8" style="background-color: #00308F; border-radius: 5px;">
 
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -16,7 +16,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium font-bold uppercase tracking-wider">
                                         ID
                                     </th>
                                     <td
@@ -27,7 +27,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium font-bold uppercase tracking-wider">
                                         Program
                                     </th>
                                     <td
@@ -38,7 +38,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium font-bold uppercase tracking-wider">
                                         Title
                                     </th>
                                     <td
@@ -49,8 +49,8 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Description
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium font-bold uppercase tracking-wider">
+                                        Abstract
                                     </th>
                                     <td
                                         class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -60,7 +60,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium font-bold uppercase tracking-wider">
                                         Research Agenda
                                     </th>
                                     <td
@@ -73,7 +73,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium font-bold uppercase tracking-wider">
                                         Research Topics
                                     </th>
 
@@ -92,7 +92,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium font-bold uppercase tracking-wider">
                                         Adviser
                                     </th>
                                     <td
@@ -103,7 +103,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium font-bold uppercase tracking-wider">
                                         Year
                                     </th>
                                     <td
@@ -114,7 +114,7 @@
 
                                 <tr class="border-b">
                                     <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium font-bold uppercase tracking-wider">
                                         File
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
@@ -162,7 +162,7 @@
                                                 <div class="row">
                                                     <div class="col mt-5">
                                                         <label for="file" class="form-label"><b></b></label>
-                                                        @if(Auth::user()->id == 1 || 2)
+                                                        @if(Auth::user()->uploader == "yes")
 
                                                         <input type="file"
                                                             class="form-control shadow-none  @error('docFile') is-invalid @enderror"

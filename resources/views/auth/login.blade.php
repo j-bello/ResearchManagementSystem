@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/style.css">
 
 	</head>
-	<body>
+	<body style="background-image: url(/uploads/bgfinal.png); background-size: 100% 100%; background-repeat: no-repeat;">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -20,7 +20,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<div class="wrap d-md-flex">
-						<div class="img" style="background-image: url(/uploads/logo2.png);">
+						<div class="img" style="background-image: url(/uploads/logofinal.png);">
 			      </div>
 						<div class="login-wrap p-4 p-md-5">
 			      	<div class="d-flex">

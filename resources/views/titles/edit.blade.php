@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-l text-gray-800 leading-tight">
+        <h2 class="font-semibold text-l text-white leading-tight">
             Edit Title
         </h2>
     </x-slot>
@@ -31,10 +31,11 @@
     </head>
 
     <body>
-
+<br><br>
 
         <div>
-            <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
+
+            <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8" style="background-color: #00308F; border-radius: 5px;">
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <form method="post" action="{{ route('titles.update', $title->id) }}">
                         @csrf
@@ -66,10 +67,13 @@
                             </div>
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <label for="description"
-                                    class="block font-medium text-sm text-gray-700">Description</label>
-                                <input type="text" name="description" id="description" type="text"
-                                    class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                    value="{{ old('description',  $title->description) }}" />
+                                    class="block font-medium text-sm text-gray-700">Abstract</label>
+
+                                    <textarea name="description" id="description"
+                                            class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                            value="{{ old('description', $title->description) }}" > </textarea>
+
+
                                 @error('description')
                                     <p class="text-sm text-red-600">{{ $message }}</p>
                                 @enderror
@@ -91,7 +95,7 @@
                             </div>
 
 
-                            <div class="px-4 sm:p-6">
+                            <div class="px-4 sm:p-6" style="background-color: white;">
                                 <label for="themes" class="block font-medium text-sm text-gray-700"
                                     style="font-weight: bold;">Themes</label>
 
