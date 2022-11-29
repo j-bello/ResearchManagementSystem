@@ -20,7 +20,7 @@ foreach ($wordcloud as $theme => $values) {
             <div class="max-w-0 mx-auto sm:px-6 lg:px-8">
 
                 <?php
-                $con = mysqli_connect('localhost', 'root', '', 'laravel');
+                $con = mysqli_connect('localhost', 'root', 'password', 'laravel');
                 if ($con) {
                 }
                 ?>
@@ -32,8 +32,7 @@ foreach ($wordcloud as $theme => $values) {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
                     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-                    <link rel="stylesheet"
-                        href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
                     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -64,7 +63,7 @@ foreach ($wordcloud as $theme => $values) {
                             ]);
 
                             var options = {
-                                title: 'Tags/Categories'
+                                title: ''
 
 
                             };
@@ -88,8 +87,7 @@ foreach ($wordcloud as $theme => $values) {
 
 
 
-                    <div class="containerabout mw-100"
-                        style="background-image: url(/uploads/bgfinal.png); background-size: 100% 100%; background-repeat: no-repeat; ">
+                    <div class="containerabout mw-100" style="background-image: url(/uploads/bgfinal.png); background-size: 100% 100%; background-repeat: no-repeat; ">
 
 
 
@@ -105,8 +103,7 @@ foreach ($wordcloud as $theme => $values) {
                             </div>
                             <br>
                             <div style="background-color:white; opacity: 0.6; width: 95%; border-radius: 25px;">
-                                <p class="text-black"
-                                    style="padding: 25px 50px 75px 100px; text-align:justify; font-weight: medium;">
+                                <p class="text-black" style="padding: 25px 50px 75px 100px; text-align:justify; font-weight: medium;">
                                     Every year there are graduating students who need to pass their thesis/capstone
                                     subject in order to finish college. Therefore, the researchers conducted a study
                                     that will provide a repository to all thesis/capstone projects within the CITE
@@ -131,8 +128,7 @@ foreach ($wordcloud as $theme => $values) {
                                 <div class="grid1">
                                     <div class="card">
                                         <div class="card-details">
-                                            <p class="text-title" style="font-size: 22px;">Search Thesis and Capstone <i
-                                                    class="fa-sharp fa-solid fa-magnifying-glass"></i></p>
+                                            <p class="text-title" style="font-size: 22px;">Search Thesis and Capstone <i class="fa-sharp fa-solid fa-magnifying-glass"></i></p>
 
                                             <p class="text-body" style="font-size: 14px;">Searching, Viewing, and
                                                 Downloading
@@ -147,8 +143,7 @@ foreach ($wordcloud as $theme => $values) {
                                 <div class="grid2">
                                     <div class="card">
                                         <div class="card-details">
-                                            <p class="text-title" style="font-size: 22px;">Analytics&nbsp<i
-                                                    class="fa-sharp fa-solid fa-chart-simple"></i></p>
+                                            <p class="text-title" style="font-size: 22px;">Analytics&nbsp<i class="fa-sharp fa-solid fa-chart-simple"></i></p>
 
                                             <p class="text-body" style="font-size: 14px;">Display realtime Analytics of
                                                 data
@@ -207,9 +202,7 @@ foreach ($wordcloud as $theme => $values) {
             </center>
             <br>
 
-            <div class="parent max-w-full mx-auto sm:px-6 lg:px-8" id="analytics" data-aos="fade-up"
-                data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out"
-                data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-center ">
+            <div class="parent max-w-full mx-auto sm:px-6 lg:px-8" id="analytics" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="false" data-aos-anchor-placement="top-center ">
                 <div class="div1">
                     <div class="card-body color1">
                         <div class="float-left">
@@ -220,7 +213,7 @@ foreach ($wordcloud as $theme => $values) {
                                     <?php
                                     $servername = 'localhost';
                                     $username = 'root';
-                                    $password = '';
+                                    $password = 'password';
                                     $dbname = 'laravel';
                                     $con = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -253,7 +246,7 @@ foreach ($wordcloud as $theme => $values) {
                                     <?php
                                     $servername = 'localhost';
                                     $username = 'root';
-                                    $password = '';
+                                    $password = 'password';
                                     $dbname = 'laravel';
                                     $con = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -284,7 +277,7 @@ foreach ($wordcloud as $theme => $values) {
                                     <?php
                                     $servername = 'localhost';
                                     $username = 'root';
-                                    $password = '';
+                                    $password = 'password';
                                     $dbname = 'laravel';
                                     $con = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -331,160 +324,161 @@ foreach ($wordcloud as $theme => $values) {
                             <body>
 
                                 <center>
-                                <div id="container" style="height: 800px; width: 55em; border-radius: 25px; max-width:100%;">
+                                    <div id="container" style="height: 800px; width: 55em; border-radius: 25px; max-width:100%;">
                                 </center>
 
 
-                                </div>
-                                <script>
-                                    var themes = '{!! json_encode($themes) !!}'
-                                    console.log('{!! json_encode($themes) !!}')
-                                </script>
-                                <script src="{{ asset('assets/charts/wordcloud.js') }} "></script>
-                            </body>
-
-                            </html>
-                            </center>
-
                         </div>
-
-
-
+                        <script>
+                            var themes = '{!! json_encode($themes) !!}'
+                            console.log('{!! json_encode($themes) !!}')
+                        </script>
+                        <script src="{{ asset('assets/charts/wordcloud.js') }} "></script>
                         </body>
 
-
-
-                        <script type="text/javascript">
-                            $('.count').each(function() {
-                                $(this).prop('Counter', 0).animate({
-                                    Counter: $(this).text()
-                                }, {
-                                    duration: 4000,
-                                    easing: 'swing',
-                                    step: function(now) {
-                                        $(this).text(Math.ceil(now));
-                                    }
-                                });
-                            });
-                        </script>
-
-
+                        </html>
                         </center>
 
-
                     </div>
+
+
+
+                    </body>
+
+
+
+                    <script type="text/javascript">
+                        $('.count').each(function() {
+                            $(this).prop('Counter', 0).animate({
+                                Counter: $(this).text()
+                            }, {
+                                duration: 4000,
+                                easing: 'swing',
+                                step: function(now) {
+                                    $(this).text(Math.ceil(now));
+                                }
+                            });
+                        });
+                    </script>
+
+
+                    </center>
+
+
                 </div>
             </div>
-            <!--Widget End-->
-
-
-
-            <center>
-                <div class="wrapper max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
-
-
-                    <?php
-                    $con = mysqli_connect('localhost', 'root', '', 'laravel');
-                    if (!$con) {
-                        # code...
-                        echo 'Problem in database connection! Contact administrator!' . mysqli_error();
-                    } else {
-                        $sql = 'SELECT `program`, COUNT(program) as number FROM titles GROUP BY program';
-                        $result = mysqli_query($con, $sql);
-                        $chart_data = '';
-                        while ($row = mysqli_fetch_array($result)) {
-                            $productname[] = $row['program'];
-                            $sales[] = $row['number'];
-                        }
-                    }
-
-                    ?>
-
-                    <div style="width:auto; background:#03A9F3; border-radius: 20px;">
-                        <canvas id="chartjs_bar" style="width:auto; background:#fff; border-radius: 5px;"></canvas>
-                    </div>
-
-                    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-                    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-                    <script type="text/javascript">
-                        var ctx = document.getElementById("chartjs_bar").getContext('2d');
-                        var myChart = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: <?php echo json_encode($productname); ?>,
-                                datasets: [{
-                                    backgroundColor: [
-                                        "#5969ff",
-                                        "#ff407b",
-                                        "#25d5f2",
-                                        "#ffc750",
-                                        "#2ec551",
-                                        "#7040fa",
-                                        "#ff004e"
-                                    ],
-                                    data: <?php echo json_encode($sales); ?>,
-                                }]
-                            },
-                            options: {
-                                legend: {
-                                    display: false,
-                                    position: 'bottom',
-                                    labels: {
-                                        fontColor: '#71748d',
-                                        fontFamily: 'Circular Std Book',
-                                        fontSize: 14,
-                                    }
-                                },
-
-
-                            }
-                        });
-                    </script>
-
-
-
-
-
-
-
-
-                    <div id="piechart" style="width:auto; background:#03A9F3; border-radius: 20px;"></div>
-
-
-                    <div id="my-chart" style="width:auto; background:#03A9F3; border-radius: 20px;"> </div>
-
-                    <script type="text/javascript">
-                        google.charts.load('current', {
-                            'packages': ['corechart'],
-                            'mapsApiKey': '' // her eyou can put you google map key
-                        });
-                        google.charts.setOnLoadCallback(drawRegionsMap);
-
-                        function drawRegionsMap() {
-                            var data = google.visualization.arrayToDataTable([
-                                ['year', '', 'No. of Documents'],
-                                <?php
-                                $chartQuery = 'SELECT `year`, COUNT(program) as number FROM titles GROUP BY year';
-                                $chartQueryRecords = mysqli_query($con, $chartQuery);
-                                while ($row = mysqli_fetch_assoc($chartQueryRecords)) {
-                                    echo "['" . $row['year'] . "'," . $row['number'] . ',' . $row['number'] . '],';
-                                }
-                                ?>
-                            ]);
-
-                            var options = {
-
-                            };
-
-                            var chart = new google.visualization.LineChart(document.getElementById('my-chart'));
-                            chart.draw(data, options);
-                        }
-                    </script>
-                </div>
-
-
-
         </div>
+        <!--Widget End-->
+
+
+
+        <center>
+            <div class="wrapper max-w-screen-2xl mx-auto py-10 sm:px-6 lg:px-8">
+
+
+                <?php
+                $con = mysqli_connect('localhost', 'root', 'password', 'laravel');
+                if (!$con) {
+                    # code...
+                    echo 'Problem in database connection! Contact administrator!' . mysqli_error();
+                } else {
+                    $sql = 'SELECT `program`, COUNT(program) as number FROM titles GROUP BY program';
+                    $result = mysqli_query($con, $sql);
+                    $chart_data = '';
+                    while ($row = mysqli_fetch_array($result)) {
+                        $productname[] = $row['program'];
+                        $sales[] = $row['number'];
+                    }
+                }
+
+                ?>
+            <div style="background:#03A9F3; border-radius: 20px;"><h1 style="background:white; font-weight:bold; text-align:left; font-size: 20px;">&nbsp&nbsp&nbspTotal submitted Thesis and Capstone per program &nbsp<i class="fa-sharp fa-solid fa-chart-column"></i></h1>
+                <div style="width:auto; background:#03A9F3; border-radius: 20px;">
+                    <canvas id="chartjs_bar" style="width:auto; background:#fff; height: 300px;"></canvas>
+                </div>
+                </div>
+                <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+                <script type="text/javascript">
+                    var ctx = document.getElementById("chartjs_bar").getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: <?php echo json_encode($productname); ?>,
+                            datasets: [{
+                                backgroundColor: [
+                                    "#5969ff",
+                                    "#ff407b",
+                                    "#25d5f2",
+                                    "#ffc750",
+                                    "#2ec551",
+                                    "#7040fa",
+                                    "#ff004e"
+                                ],
+                                data: <?php echo json_encode($sales); ?>,
+                            }]
+                        },
+                        options: {
+
+                            responsive: true,
+                            legend: {
+                                display: false
+                            },
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            }
+                        }
+                    });
+                </script>
+
+
+
+
+
+
+
+                <div style="background:#03A9F3; border-radius: 20px;"><h1 style="background:white; font-weight:bold; text-align:left; font-size:20px;">&nbsp&nbsp&nbspTags Popularity&nbsp <i class="fa-sharp fa-solid fa-chart-pie"></i></h1>
+                <div id="piechart" style="width:auto; background:#03A9F3; border-radius: 20px; height: 300px;"></div>
+            </div>
+            <div style="background:#03A9F3; border-radius: 20px;"><h1 style="background:white; font-weight:bold; text-align:left; font-size:20px;">&nbsp&nbsp&nbspSubmitted Capstone and Thesis yearly&nbsp <i class="fa-sharp fa-solid fa-chart-line"></i></h1>
+                <div id="my-chart" style="width:auto; background:#03A9F3; border-radius: 20px; height:300px;"> </div>
+                </div>
+                <script type="text/javascript">
+                    google.charts.load('current', {
+                        'packages': ['corechart'],
+                        'mapsApiKey': '' // her eyou can put you google map key
+                    });
+                    google.charts.setOnLoadCallback(drawRegionsMap);
+
+                    function drawRegionsMap() {
+                        var data = google.visualization.arrayToDataTable([
+                            ['year', '', ''],
+                            <?php
+                            $chartQuery = 'SELECT `year`, COUNT(program) as number FROM titles GROUP BY year';
+                            $chartQueryRecords = mysqli_query($con, $chartQuery);
+                            while ($row = mysqli_fetch_assoc($chartQueryRecords)) {
+                                echo "['" . $row['year'] . "'," . $row['number'] . ',' . $row['number'] . '],';
+                            }
+                            ?>
+                        ]);
+
+                        var options = {
+
+                        };
+
+                        var chart = new google.visualization.LineChart(document.getElementById('my-chart'));
+                        chart.draw(data, options);
+                    }
+                </script>
+            </div>
+
+
+
+    </div>
 
     </div>
 
@@ -511,11 +505,6 @@ foreach ($wordcloud as $theme => $values) {
 
 
 <style>
-
-
-
-
-
     html {
         scroll-behavior: smooth;
     }
@@ -661,12 +650,12 @@ foreach ($wordcloud as $theme => $values) {
 
 
 
-
+    @media (min-width: 900px) {
 
     .wrapper {
         display: grid;
         grid-template-columns: 33% 33% 33%;
-        grid-column-gap: 1em;
+        grid-column-gap: .5em;
         height: auto;
         width: auto;
     }
@@ -709,6 +698,7 @@ foreach ($wordcloud as $theme => $values) {
         width: auto;
 
     }
+}
 
     /*widget css*/
     .color1 {

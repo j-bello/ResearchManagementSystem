@@ -42,7 +42,7 @@
     </style>
 </head>
 <body>
-    <center><h1>Updated List of Thesis and Capstone Titles</h1></center>
+    <center><h1>List of Thesis and Capstone Titles</h1></center>
     <table id = "doc">
         <thead>
             <tr>

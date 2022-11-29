@@ -42,6 +42,7 @@
     </style>
 </head>
 <body>
+    <center><h1>Research Themes</h1></center>
     <table id = "doc">
         <thead>
             <tr>
